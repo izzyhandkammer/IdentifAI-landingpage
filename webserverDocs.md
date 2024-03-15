@@ -1,14 +1,98 @@
-# Walkthrough of how to take Landing Page and Put it on a Production Server
+# Landing Page Code -> Production Server
 
 ## Buying a Domain (GoDaddy, etc.)
+This part is relatively straight forward! You really just need to switch the nameservers over to DigitalOcean at some point but we can go into this another time
 ## DigitalOcean Server Setup
+We can walk through this on screen share!
 ## DigitalOcean Domain Setup
 Right now we have a identifai.info domain registered for testing out new webpages and services! Fortunately, we already have this added to DigialOcean and set up with DigitalOcean nameservers so configuring the DNS (Domain Name Service) for the test landing page should be easy.
 ### Configuring in DigitalOcean
-![alt text](docs/domainAdd.png)
+#### Adding landing.identifai.info
+![alt text](docs/digitalOceanDomain1.png)
+#### Adding www.landing.identifai.info
+![alt text](docs/digitalOceanDomain2.png)
+#### What you should see on the Domain Page
+![alt text](docs/digitalOceanDomain3.png)
 
 ## First Server Access
+### Installing NGINX Webserver
+Couple of quick things to install before you start getting the server set up!
+```
+apt install nginx
+```
+### Installing Python required libraries
+
+```
+apt install python3-fastapi
+```
+
 ## SSL / HTTPS Configuration
+This is one of the most important pieces as it allows users to access your webpage using HTTPS (secure transmission) instead of HTTP. The steps are relatively straightforward!
+
+### Download Certbot
+```
+sudo apt install certbot python3-certbot-nginx
+```
+
+### Run CertBot on your domain names!
+```
+sudo certbot --nginx -d your_domain.com -d www.your_domain.com
+```
+
+### Create Nginx Configuration file for your domain
+```
+sudo nano /etc/nginx/sites-available/your_domain.com
+```
+
+### Fill in config file
+```
+server {
+    listen 80;
+    server_name your_domain.com www.your_domain.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name your_domain.com www.your_domain.com;
+
+    ssl_certificate /etc/letsencrypt/live/your_domain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/your_domain.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf; # Managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # Managed by Certbot
+
+    location / {
+        proxy_pass http://localhost:5678; # Wherever your fastapi server is running (we will change this later)
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+```
+
+### Enable your site with Symlink
+```
+sudo ln -s /etc/nginx/sites-available/your_domain.com /etc/nginx/sites-enabled/
+```
+
+### Remove unneccessary default directory
+```
+sudo rm /etc/nginx/sites-enabled/default
+```
+
+### Test and Reload nginx
+```
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+Bam! We are now ready to spin up our fastAPI server and start seeing live results online!
+
 ## Firewall Setup
 ### Setting up UFW for SSH access, and public port 80 (HTTP) and 443 (HTTPS)
 
@@ -43,6 +127,8 @@ sudo ufw status
 ```
 
 ## FastAPI and Directory Setup
+
+For this we will take a look at our webserver set-up for our demo User interface that customers interact with!!
 
 ## Logging
 When building a webserver for production-level use, you want to make sure that your endpoints have proper logging to track if there are any 
