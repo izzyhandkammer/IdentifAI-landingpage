@@ -252,7 +252,7 @@
 <div id="menu">
   <div id="menuitems">
     <a href="#about" class="menu-item" use:smoothScroll>About</a>
-    <a href="#our-team" class="menu-item" use:smoothScroll>Our Team</a>
+    <a href="#team-heading" class="menu-item" use:smoothScroll>Our Team</a>
     <a href="#contact" class="menu-item" use:smoothScroll>Contact</a>
     <a href="#faq" class="menu-item" use:smoothScroll>FAQ</a>
     <a href="https://identifai.substack.com/" target="_blank" class="menu-item"
@@ -284,8 +284,6 @@
   #first-text {
     animation: slideLeft 1s forwards;
   }
-
-
 
   #second-text {
     animation: fadein 2s forwards;
@@ -555,6 +553,88 @@
     font-size: 1.5em;
     line-height: 1.5em;
     color: black;
+  }
+
+  @media (max-width: 1200px){
+    .body{
+      padding-top: 150px;
+    }
+    #menu{
+      padding-top: 10px;
+      display: block;
+      position: fixed;
+      flex-direction: row;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-color: transparent;
+      color:#101b72;
+      text-align: center;
+      justify-content: space-around;
+      line-height: 50px;
+    }
+
+    #menuitems{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    .title{
+      padding-top: 10%;
+      font-size: 0.75em;
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 700px){
+    .body{
+      padding: 0;
+      margin: 30px;
+    }
+    .title{
+      padding-top: 20%;
+      font-size: 0.5em;
+      white-space: nowrap;
+    }
+
+    #menu{
+      margin-top: 0;
+      padding-top: 0;
+      display: block;
+      position: fixed;
+      flex-direction: row;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-color: transparent;
+      color:#101b72;
+      text-align: center;
+      justify-content: space-around;
+      line-height: 50px;
+      font-size: 8px;
+    }
+
+    .call-inter{
+      height: 300px;
+      width: 400px;
+    }
+
+    #about p {
+      font-size: 18px;
+    }
+
+    #our-team{
+      flex-direction: column;
+    }
+
+    .member{
+      margin: 0;
+    }
+
   }
 
 
