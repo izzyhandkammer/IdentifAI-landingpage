@@ -12,3 +12,4 @@ vite.config.ts.timestamp-*
 .eslintrc.cjs
 .prettierignore
 .prettierrc
+landingpage/
