@@ -8,6 +8,7 @@
   import pvann from '$lib/assets/pvann.jpeg'
 
   let scroll;
+  let showMessageSuccess = false;
 
   onMount(() => {
     updateImage()
@@ -39,8 +40,6 @@
       text: 'Deepfakes represent a significant concern in the digital age because they enable the creation of highly convincing yet false images and videos, undermining the ability to trust visual media and posing serious threats to personal reputation, security, and democratic processes. As these synthetic representations become increasingly indistinguishable from reality, they amplify the potential for misinformation, making the need for sophisticated detection and prevention methods more crucial than ever.',
     },
   ]
-
-
 </script>
 
 <svelte:window bind:scrollY={scroll} />
@@ -69,7 +68,7 @@
         artificial intelligence.
       </h2>
 
-      <p>more very dope animations and impressive stuff</p>
+      <p>here i think it would be good to have a demo video</p>
 
       <h2>
         We are currently in stealth, but please reach out or book time to
@@ -105,7 +104,7 @@
         deepfake attacks.
       </p>
 
-      <h3 id="team-heading" style="padding-top: 3em;">Our Team</h3>
+      <h3 id="team-heading" style="padding-top: 2em;">Our Team</h3>
       <div id="our-team" class="our-team">
         <div id="Justin" class="member">
           <img
@@ -152,67 +151,24 @@
           >
         </div>
       </div>
-      <h3 id="contact" style="padding-top: 3em;">Contact</h3>
+      <h3 id="contact" style="padding-top: 2em;">Contact</h3>
       <p>
         We would love to hear from you! Reach out to us by filling out our form
         or schedule time with us via our Calendly.
       </p>
-
-      <form
-        id="fcf-form-id"
-        class="fcf-form-class"
-        method="post"
-        action="contact-form-process.php"
-      >
-        <div class="fcf-form-group">
-          <label for="Name" class="fcf-label">Your name</label>
-          <div class="fcf-input-group">
-            <input
-              type="text"
-              id="Name"
-              name="Name"
-              class="fcf-form-control"
-              required
-            />
-          </div>
-        </div>
-
-        <div class="fcf-form-group">
-          <label for="Email" class="fcf-label">Your email address</label>
-          <div class="fcf-input-group">
-            <input
-              type="email"
-              id="Email"
-              name="Email"
-              class="fcf-form-control"
-              required
-            />
-          </div>
-        </div>
-
-        <div class="fcf-form-group">
-          <label for="Message" class="fcf-label">Your message</label>
-          <div class="fcf-input-group">
-            <textarea
-              id="Message"
-              name="Message"
-              class="fcf-form-control"
-              rows="6"
-              required
-            ></textarea>
-          </div>
-        </div>
-
-        <div class="fcf-form-group">
-          <button
-            type="submit"
-            id="fcf-button"
-            class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block"
-            >Send Message</button
-          >
-        </div>
-      </form>
-
+            <form action="https://api.staticforms.xyz/submit" method="post" id="staticform">
+              <input type="hidden" name="accessKey" value="ced75aef-fc00-4120-a021-d7523c0e906c">
+                <input type="text" name="name" placeholder="Enter Your Name" required>  
+                <input type="text" name="email" placeholder="Enter Your Email" required >
+                <input type="text" name="honeypot" style="display: none;">
+              <textarea name="message" placeholder="Enter Your Message" required ></textarea>
+              <input type="hidden" name="replyTo" value="@">
+              <input type="hidden" name="redirectTo" value="https://example.com/contact/success">
+               <input type="submit" value="Submit"/>
+          </form>
+          {#if showMessageSuccess}
+            <p>Thank you for reaching out! We will get back to you within the next 48 hours.</p>
+          {/if}
       <div
         class="calendly-inline-widget"
         data-url="https://calendly.com/d/494-3xs-7yt/identifai-30-minute-meeting"
@@ -507,7 +463,7 @@
   }
 
   .linkedinlink:hover {
-    background-color: #f1f7fe;
+    background-color: transparent;
     color: #1f36e0;
   }
 
@@ -555,6 +511,41 @@
     color: black;
   }
 
+  #staticform {
+    display: grid;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  #staticform input[type="text"], #staticform textarea {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: inherit;
+  }
+
+  #staticform input[type="submit"] {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 25px;
+    border: #1f36e0 2px solid;
+    color: #f1f7fe;
+    background-color: #1f36e0;
+    text-decoration: none;
+    justify-self: center;
+    font-size: 1em;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  #staticform input[type="submit"]:hover {
+    background-color: transparent;
+    color: #1f36e0;
+  }
+
   @media (max-width: 1200px){
     .body{
       padding-top: 150px;
@@ -594,6 +585,12 @@
       padding: 0;
       margin: 30px;
     }
+    .container{
+      width: 100%;
+    }
+    .rhetorical{
+      width: 70%;
+    }
     .title{
       padding-top: 20%;
       font-size: 0.5em;
@@ -608,7 +605,7 @@
       flex-direction: row;
       top: 0;
       left: 0;
-      width: 100%;
+      width: 90%;
       height: 50px;
       background-color: transparent;
       color:#101b72;
@@ -634,7 +631,6 @@
     .member{
       margin: 0;
     }
-
   }
 
 

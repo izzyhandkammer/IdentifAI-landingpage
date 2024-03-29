@@ -23,7 +23,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"svelte-collapsible": "^0.3.0"
+		"svelte-collapsible": "^0.3.0",
+		"svelte-simple-modal": "^1.6.2"
 	},
 	"activationEvents": [
 		"onLanguage:css",
@@ -44,5 +45,4 @@
 		"onLanguage:yaml",
 		"onStartupFinished"
 	]
-	}
-
+}
