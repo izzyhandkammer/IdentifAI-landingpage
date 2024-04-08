@@ -1,637 +1,593 @@
 <script>
-  import { onMount } from 'svelte'
-  import { fade } from 'svelte/transition'
-  import { Accordion, AccordionItem } from 'svelte-collapsible'
+    let apps = "/apps.png";
+    let favicon = "/eyecon.png"
+    let mobile = "/mobile.png";
+    let meetingAdd = "/meeting-add.png";
 
-  import vidinter from '$lib/assets/videocall0.png'
-  import jmarciano from '$lib/assets/jmarciano.jpeg'
-  import pvann from '$lib/assets/pvann.jpeg'
+    let cards;
+    function handleMouseMove(e) {
+    for(const card of cards.getElementsByClassName("card")) {
+      const rect = card.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
 
-  let scroll;
-  let showMessageSuccess = false;
-
-  onMount(() => {
-    updateImage()
-  })
-
-  function smoothScroll(node) {
-    node.addEventListener('click', (event) => {
-      event.preventDefault()
-      document.querySelector(event.target.hash).scrollIntoView({
-        behavior: 'smooth',
-      })
-    })
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+    };
   }
-
-  const items = [
-    {
-      key: 'a',
-      title: 'What is a deepfake?',
-      text: 'A Deepfake is a manipulated video, photo, or audio recording that uses artificial intelligence (AI) to make it seem authentic. Deepfakes can be used to misinform users on social media sites, and can trigger reputation damage, financial loss, and legal issues.',
-    },
-    {
-      key: 'b',
-      title: 'What can I do to protect myself?',
-      text: "To safeguard yourself from the risks of deepfakes, adopting a proactive stance is key. At IdentifAI, we've engineered a cutting-edge solution designed to actively protect and monitor the images you share online, ensuring your digital persona is secure from misuse and manipulation.",
-    },
-    {
-      key: 'c',
-      title: 'Why are deepfakes significant?',
-      text: 'Deepfakes represent a significant concern in the digital age because they enable the creation of highly convincing yet false images and videos, undermining the ability to trust visual media and posing serious threats to personal reputation, security, and democratic processes. As these synthetic representations become increasingly indistinguishable from reality, they amplify the potential for misinformation, making the need for sophisticated detection and prevention methods more crucial than ever.',
-    },
-  ]
 </script>
 
-<svelte:window bind:scrollY={scroll} />
 <body>
-  <div class="container">
-    <div class="title">
-      <h1 id="first-text">We are</h1>
-      <h1 id="second-text">IdentifAI.</h1>
+    <head>
+        <title>IdentifAI</title>
+        <link rel="icon" type="image/x-icon" src={favicon}>
+    </head>
+
+    <div class="content" id="content">
+        <div class="title-card-gradient">
+        <h1 class="title-card">We are IdentifAI</h1>
+        <h2 class="info-card"> Deepfakes have become a significant threat to the fabric of our society. 
+            That’s why IdentifAI seeks to create a transparent internet in an age of ever-improving artificial intelligence. <br>
+            We take a novel approach to address the challenge of deepfakes; our platform offers
+            a streamlined service for protecting, managing, and monitoring image veracity in real time
+            for enterprises at high risk of deepfake attacks.
+        </h2>
+        <div class="learn-more">
+        <a href="#cards">
+            <p>Learn more</p>
+            <div class="arrow"></div>
+        </a>
     </div>
-
-    <div class="call-inter">
-      <div class="screen-image"></div>
-      <div class="screen-overlay"></div>
-      <div class="screen-content"></div>
     </div>
-
-        <div class="rhetorical">
-      <h2>How Many People Have Access to Your Pictures and Videos?</h2>
-    </div>
-
-    <div class="rhetorical">
-      <h2>
-        Deepfakes have become a significant threat to the fabric of our society
-        that has become so intertwined with the internet. That’s why IdentifAI
-        seeks to create transparent internet in an age of ever-improving
-        artificial intelligence.
-      </h2>
-
-      <p>here i think it would be good to have a demo video</p>
-
-      <h2>
-        We are currently in stealth, but please reach out or book time to
-        discuss IdentifAI or your deepfake issues with us below!
-      </h2>
-    </div>
-
-    <div id="about" class="about" style="padding-top: 4em;">
-      <h3>Our Story</h3>
-      <p>
-        IdentifAI was inspired by Justin’s interest in digital authenticity and
-        Paul’s cybersecurity expertise. The two met at the University of
-        Virginia and maintained their friendship post-graduation. After
-        graduating, Paul became a thought leader in generative AI and cyber. The
-        two crossed paths again in San Francisco when Paul spoke at the 2023 RSA
-        conference. Realizing the synergy between blockchain’s value of
-        authenticity and AI's capabilities, they decided to create IdentifAI.
-        Justin saw beyond the speculative allure of NFTs and recognized the
-        unsolved, pervasive issue blockchains have attempted to solve: the
-        erosion of digital truth and authenticity. Paul saw beyond the immediate
-        wonders of AI, grasping the ramifications to come. The two are now on a
-        mission to protect businesses against the severe threats of deepfake
-        attacks that can precipitate hefty financial losses and tarnish brand
-        reputations, ensuring integrity remains at the forefront of the online
-        experience.
-      </p>
-
-      <h3>Our Mission</h3>
-      <p>
-        IdentifAI takes a novel approach to address the challenge of deepfakes;
-        our platform offers a streamlined service for protecting, managing, and
-        monitoring image veracity in real time for enterprises at high risk of
-        deepfake attacks.
-      </p>
-
-      <h3 id="team-heading" style="padding-top: 2em;">Our Team</h3>
-      <div id="our-team" class="our-team">
-        <div id="Justin" class="member">
-          <img
-            src={jmarciano}
-            alt="Justin Marciano"
-            style="height: 250px; width: 250px; border-radius: 15%;"
-          />
-          <h4>Justin Marciano: Co-Founder</h4>
-          <p>
-            Justin is the Co-Founder and CEO of IdentifAI. Studying economics
-            with a concentration in finance at the University of Virginia, he
-            has navigated his way through the venture capital, blockchain, and
-            payment sectors, aligning his career path with his enthusiasm for
-            emerging technologies. Justin currently works in product management
-            and has previously worked at Stepstone Group as a VC & Growth
-            Analyst.
-          </p>
-          <a
-            class="linkedinlink"
-            href="https://www.linkedin.com/in/justin-marciano32/"
-            target="_blank">LinkedIn</a
-          >
-        </div>
-
-        <div id="Paul" class="member">
-          <img
-            src={pvann}
-            alt="Paul Vann"
-            style="height: 250px; width: 250px; border-radius: 15%;"
-          />
-          <h4>Paul Vann: Co-Founder</h4>
-          <p>
-            Paul is a seasoned cybersecurity professional, with experience
-            across numerous emerging markets in the field. He has worked at a
-            wide array of cybersecurity and software development startups,
-            helping to ensure a more secure future for all. Paul additionally is
-            passionate about emerging technologies in the space and was
-            recognized as a Top rated Speaker at the RSA Conference in 2023.
-          </p>
-          <a
-            class="linkedinlink"
-            href="https://www.linkedin.com/in/paul-vann-b996b2120/"
-            target="_blank">LinkedIn</a
-          >
-        </div>
-      </div>
-      <h3 id="contact" style="padding-top: 2em;">Contact</h3>
-      <p>
-        We would love to hear from you! Reach out to us by filling out our form
-        or schedule time with us via our Calendly.
-      </p>
-            <form action="https://api.staticforms.xyz/submit" method="post" id="staticform">
-              <input type="hidden" name="accessKey" value="ced75aef-fc00-4120-a021-d7523c0e906c">
-                <input type="text" name="name" placeholder="Enter Your Name" required>  
-                <input type="text" name="email" placeholder="Enter Your Email" required >
-                <input type="text" name="honeypot" style="display: none;">
-              <textarea name="message" placeholder="Enter Your Message" required ></textarea>
-              <input type="hidden" name="replyTo" value="@">
-              <input type="hidden" name="redirectTo" value="https://example.com/contact/success">
-               <input type="submit" value="Submit"/>
-          </form>
-          {#if showMessageSuccess}
-            <p>Thank you for reaching out! We will get back to you within the next 48 hours.</p>
-          {/if}
-      <div
-        class="calendly-inline-widget"
-        data-url="https://calendly.com/d/494-3xs-7yt/identifai-30-minute-meeting"
-        style="min-width:320px;height:820px;"
-      ></div>
-      <script
-        type="text/javascript"
-        src="https://assets.calendly.com/assets/external/widget.js"
-        async
-      ></script>
-
-      <div id="faq" style="padding-top: 3em;">
-        <h3>FAQ</h3>
-        <div class="accordion">
-          <Accordion>
-            {#each items as item}
-              <div class="pannel">
-                <AccordionItem key={item.key}>
-                  <div slot="header" class="header">
-                    <div>
-                      <h2>{item.title}</h2>
+    <div id="cards" bind:this={cards} on:mousemove={handleMouseMove} role="presentation">
+        <div class="card ui-demo">
+            <div class="card-content">
+                <div class="card-image-ui-demo">
+                </div>
+                <div class="card-info-wrapper">
+                    <div class="card-info-ui-demo">
+                        <div class="card-info-title">
+                        </div>    
                     </div>
-                  </div>
-                  <p slot="body" class="body">
-                    {item.text}
-                  </p>
-                </AccordionItem>
-              </div>
-            {/each}
-          </Accordion>
+                </div>
+            </div>
         </div>
-      </div>
+            <div class="card apps">
+                <div class="card-content">
+                    <div class="card-image-apps">
+                        <img src={apps} alt="apps"/>
+                    </div>
+                    <div class="card-info-wrapper-apps">
+                        <div class="card-info">
+                            <div class="card-info-title">
+                                <h3>Connect your apps</h3>  
+                                <h4>
+                                    Utilize our KYE Solution on the most widely used video 
+                                    conferencing services
+                                </h4>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mobile">
+                <div class="card-content">
+                    <div class="card-image-mobile">
+                        <img src={mobile} alt="mobile"/>
+                    </div>
+                    <div class="card-info-wrapper-mobile">
+                        <div class="card-info">
+                            <div class="card-info-title">
+                                <h3>On the go?</h3>  
+                                <h4>Utilize the IdentifAI platform on any device</h4>
+                            </div>    
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class="card meeting-add">
+                <div class="card-content">
+                    <div class="card-image-meeting-add">
+                        <img src={meetingAdd} alt="meetingAdd"/>
+                    </div>
+                    <div class="card-info-wrapper-meeting-add">
+                        <div class="card-info">
+                            <div class="card-info-title">
+                                <h3>It's as simple as telling us where to be and when</h3>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card profile-creation">
+                <div class="card-content">
+                    <div class="card-image-profile-creation">
+                    </div>
+                    <div class="card-info-wrapper-profile-creation">
+                        <div class="card-info">
+                            <div class="card-info-title">
+                                <h3>Create profiles for your employees, business associates, and more</h3>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </body>
 
-<div id="menu">
-  <div id="menuitems">
-    <a href="#about" class="menu-item" use:smoothScroll>About</a>
-    <a href="#team-heading" class="menu-item" use:smoothScroll>Our Team</a>
-    <a href="#contact" class="menu-item" use:smoothScroll>Contact</a>
-    <a href="#faq" class="menu-item" use:smoothScroll>FAQ</a>
-    <a href="https://identifai.substack.com/" target="_blank" class="menu-item"
-      >Blog</a
-    >
-  </div>
-</div>
-
 <style>
-  * {
-    transition: all 0.3s;
-    background-color: #f1f7fe;
-  }
-
-  :global(html) {
+/* -- ↓ ↓ ↓ global styles ↓ ↓ ↓ -- */
+:root {
+    --bg-color: #141414;
+    --card-color: #171717;
+    
+    --gradient-one: #141414;
+    --gradient-two: #17142B;
+    --gradient-three: #14151A;
+    --gradient-four: #221220;
+}
+:global(html){
     scroll-behavior: smooth;
-  }
+}
+/* -- ↓ ↓ ↓ background gardient and grid styles ↓ ↓ ↓ -- */
 
-  h1 {
-    font-size: 6em;
-    font-weight: 700;
-    margin: 0;
-    padding: 0;
-    position: center;
-    top: 50%;
-    left: 50%;
-  }
-
-  #first-text {
-    animation: slideLeft 1s forwards;
-  }
-
-  #second-text {
-    animation: fadein 2s forwards;
-    color: #1f36e0;
-    padding: 0 10px;
-  }
-
-  .container {
-    display: flex;
+/* 
+content inspector nuclear option:
+* {
+  outline: 1px solid #f00 !important;
+}
+*/
+body {
     flex-direction: column;
+    background-color: var(--bg-color);
     justify-content: center;
     align-items: center;
-    background-color: #f1f7fe;
-    width: 60%;
-    margin: 0 auto;
-  }
-
-  .call-inter {
-    animation: slit-in-horizontal 1s ease-out 0.3s both;
-    border: 4px solid #1f36e0;
-    border-radius: 30px;
-    display:flex;
-    margin: 5%;
-    padding: 0%;
-    overflow: hidden;
-    height: 450px;
-    width: 600px;
-  }
-
-  .screen-overlay {
-    background: linear-gradient(
-      #247FFF,
-      #247FFF 3px,
-      transparent 3px,
-      transparent 9px
-    );
-    height: 100%;
-    width: 100%;
-    background-size: 100% 9px;
-    animation: pan-overlay 22s infinite linear;
-    overflow: hidden;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    opacity: 0.6;
-    z-index: 2;
-  }
-
-  .call-inter > .screen-image {
-    background-image: url($lib/assets/videocall0.png);
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-size: 100%;
-    background-position: 0% 0%;
-    background-position: center;
-    z-index: 1;
-  }
-
-  .call-inter:hover > .screen-image {
-    background-image: url($lib/assets/another0.png);
-
-  } @keyframes pan-overlay{
-    from {
-      background-position: 0% 0%;
-    }
-    to { 
-      background-position: 0% -100%;
-    }
-  }
-
-  body {
-    flex-direction: column;
-    height: 100vh;
-    background-color: #f1f7fe;
-    margin: 0px;
-    overflow: scroll;
+    align-content: center;
     font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      'Open Sans',
-      'Helvetica Neue',
-      sans-serif;
-    animation: blurFade 1s forwards;
-  }
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
+    background: linear-gradient(-45deg, var(--gradient-one), var(--gradient-two), var(--gradient-three), var(--gradient-four));
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    z-index: -1;
+    margin: 0%;
+}
 
-  @keyframes fadein {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+/* -- ↓ ↓ ↓ background gradient effect ↓ ↓ ↓ -- */
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/* -- ↓ ↓ ↓ background grid style ↓ ↓ ↓ -- */
+/*to change grid opacity: adjust alpha value in rbg(-, -, -, alpha) */
 
-  @keyframes slideLeft {
-    0% {
-      transform: translate(100%);
-    }
-    100% {
-      transform: translate(0%);
-    }
-  }
+#content{
+    background-color: transparent;
+    background-image:       
+        linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .1) 25%, 
+        rgba(255, 255, 255, .1) 26%, transparent 27%, transparent 74%, 
+        rgba(255, 255, 255, .1) 75%, 
+        rgba(255, 255, 255, .1) 76%, transparent 77%, transparent),
+        
+        linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .1) 25%, 
+        rgba(255, 255, 255, .1) 26%, transparent 27%, transparent 74%, 
+        rgba(255, 255, 255, .1) 75%, 
+        rgba(255, 255, 255, .1) 76%, transparent 77%, transparent);
 
-  @keyframes blurFade {
-    0% {
-      filter: blur(75px);
-      opacity: 0;
-    }
-    100% {
-      filter: blur(0px);
-      opacity: 1;
-    }
-  }
+    height:100%;
+    background-size:50px 50px;
+    z-index:2;
+}
 
-@keyframes slit-in-horizontal {
-  0% {
-    transform: translateZ(-800px) rotateX(90deg);
-    opacity: 0;
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.learn-more{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    margin: 0;
+    gap: 6px;
+}
+
+.learn-more a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.learn-more p{
+    margin: 20px 0 0 0;
+}
+
+.arrow {
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  border-style: solid;
+  border-color: white;
+  border-width: 0px 1px 1px 0px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.learn-more:hover a{
+  color: #f0f0f0;
+  opacity: 1;
+}
+.learn-more:hover .arrow {
+    transform: translateY(10px) rotate(45deg) ;
+}
+
+
+.title-card{
+    color: white;
+    margin-bottom: 50px;
+    font-size: 72px;
+    font-weight: 700;
+    width: 70%;
+    text-align: center;
+}
+
+.title-card-gradient{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(var(--bg-color) 35%, transparent 65%);
+    background-size: 100% 100%, 4vh 4vh;
+}
+
+.content h1 {
+    margin-top: 180px;
+    background: linear-gradient(180deg, white 70%, transparent); /* adjust colors as needed */
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    animation-name:glow;
+    animation-duration:3s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    }
+
+@keyframes glow{
+  from{text-shadow:0px 0px 5px #fff,0px 0px 5px #614ad3;}
+  to{text-shadow:0px 0px 10px #fff,0px 0px 15px #614ad3;}
+}
+
+.info-card{
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 70%;
+    text-align: center;
+}
+
+/* -- ↓ ↓ ↓ card effects ↓ ↓ ↓ -- */
+
+#cards {
+padding-top: 10%;
+padding-bottom: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-self: center;
+  max-width: 916px;
+  width: calc(100% - 20px);
+}
+
+#cards:hover > .card::after {
+  opacity: 1;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  height: 260px;
+  flex-direction: column;
+  position: relative;
+  width: 300px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.ui-demo {
+    width: 916px;
+    height: 416px;
+}
+
+.apps{
+    width: 550px;
+    height: 416px;
+}
+
+.mobile{
+    width: 350px;
+    height: 416px;
+}
+
+.meeting-add{
+    width:350px;
+    height: 350px;
+}
+
+.profile-creation {
+    width: 550px;
+    height: 350px;
+}
+
+.card-info-wrapper-apps{
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+    padding: 30px 20px;
+    flex-direction: column;
+}
+
+.card-info-wrapper-mobile{
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+    padding: 30px 20px;
+    flex-direction: column;
+}
+
+.card-info-wrapper-meeting-add {
+  position: absolute;
+  bottom: 0;
+  align-items: center;
+  padding: 30px 20px;
+  flex-direction: column;
+}
+
+.card-info-wrapper-profile-creation {
+  position: absolute;
+  bottom: 0;
+  align-items: center;
+  padding: 30px 20px;
+  flex-direction: column;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card::before,
+.card::after {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  z-index: 3;
+}
+
+.card::after {  
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 255, 255, 0.4),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.card > .card-content {
+  background-color: var(--card-color);
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  inset: 1px;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+/* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
+
+h1, h2, h3, h4 {
+  color: rgb(240, 240, 240);
+  font-weight: 400;
+  margin: 0px;
+}
+
+.card-image-apps {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.card-image-mobile {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.card-image-meeting-add {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.card-image-profile-creation {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.card-image-apps img{
+    opacity: 0.45;
+    height: 50%;
+    width: auto;
+    max-height: 900px;
+    transform: scale(0.7);
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+}
+
+.card:hover .card-image-apps img{
+    opacity: 0.85;
+    transform: scale(0.8);
+}
+
+.card-image-mobile img{
+    opacity: 0.45;
+    height: 40%;
+    width: auto;
+    max-height: 900px;
+    transform: scale(0.8);
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+}
+
+.card:hover .card-image-mobile img{
+    opacity: 0.85;
+    transform: scale(0.9);
+}
+
+.card-image-meeting-add img{
+    opacity: 0.45;
+    height: 70%;
+    width: auto;
+    max-height: 900px;
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+    position: absolute;
+}
+
+.card:hover .card-image-meeting-add img{
+    opacity: 0.85;
+    transform: scale(1.15);
+}
+
+.card-image-profile-creation img{
+    opacity: 0.45;
+    height: 70%;
+    width: auto;
+    max-height: 900px;
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+    position: absolute;
+}
+
+.card:hover .card-image-profile-creation img{
+    opacity: 0.85;
+    transform: scale(1.15);
+}
+
+.card-info-wrapper {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  padding: 0px 20px;
+  user-select: none;
+}
+
+.card-info {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+}
+
+
+.card-info-title > h3 {
+  font-size: 1.1em;
+  line-height: 20px;
+}
+
+.card-info-title > h4 {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85em;
+  margin-top: 8px;
+}
+
+
+/* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
+
+@media(max-width: 1000px) {
+  body {
+    align-items: flex-start;  
+    overflow: auto;
   }
-  54% {
-    transform: translateZ(-160px) rotateX(89.999deg);
-    opacity: 1;
+  
+  #cards {    
+    max-width: 1000px;
+    padding: 10px 0px;
   }
-  100% {
-    transform: translateZ(0) rotateX(0);
+  
+  .card {
+    flex-shrink: 1;
+    width: calc(50% - 4px);
   }
 }
 
-  .title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5%;
+@media(max-width: 500px) {
+  .card {
+    height: 180px;
+  }
+    
+  .card-info-wrapper {
+    padding: 0px 10px;
+  }
+  
+  
+  .card-info-title > h3 {
+    font-size: 0.9em;
   }
 
-  #menu {
-    height: 60vh;
-    align-items: center;
-    position: fixed;
-    top: 15em;
-    left: 0;
-    z-index: 10;
-    animation: blurFade 1s forwards;
+  .card-info-title > h4 {
+    font-size: 0.8em;
+    margin-top: 4px;
   }
+}
 
-  .menu-item {
-    color: flex;
-    font-size: 3em;
-    display: block;
-    text-decoration: none;
+@media(max-width: 320px) {
+  .card {
+    width: 100%;
   }
-
-  #menuitems {
-    margin-left: 1em;
-  }
-
-  #menuitems:hover > .menu-item {
-    opacity: 0.3;
-    font-size: 2em;
-  }
-
-  #menuitems:hover > .menu-item:hover {
-    opacity: 1;
-    font-size: 4em;
-  }
-
-  a:visited {
-    color: #1f36e0;
-  }
-
-
-  .about {
-    width: 90%;
-  }
-
-  p {
-    font-size: 1.5em;
-    line-height: 1.5em;
-  }
-
-  h3 {
-    font-size: 3em;
-    color: #1f36e0;
-  }
-
-  #team-heading {
-    text-align: left;
-    justify-self: left;
-  }
-
-  #our-team {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .linkedinlink {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 25px;
-    border: #1f36e0 2px solid;
-    color: #f1f7fe;
-    background-color: #1f36e0;
-    text-decoration: none;
-    justify-self: center;
-    font-size: 1em;
-    display: inline-block;
-  }
-
-  .linkedinlink:hover {
-    background-color: transparent;
-    color: #1f36e0;
-  }
-
-  .linkedinlink:visited {
-    color: #f1f7fe;
-  }
-  .linkedinlink:visited:hover {
-    color: #1f36e0;
-  }
-
-  .member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2em;
-  }
-
-  .member p {
-    font-size: 1.2em;
-    line-height: 1.2em;
-  }
-
-  .accordion {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: 0.4s;
-  }
-  .header {
-    background-color: #f0f8ff;
-    font-size: large;
-    color: #101b72;
-  }
-  .pannel {
-    background-color: #f1f7fe;
-    color: #101b72;
-    border: #1f73e0 2px solid;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    padding: 10px;
-  }
-  .accordion .body {
-    font-size: 1.5em;
-    line-height: 1.5em;
-    color: black;
-  }
-
-  #staticform {
-    display: grid;
-    flex-direction: column;
-    gap: 1em;
-    max-width: 500px;
-    margin: auto;
-  }
-
-  #staticform input[type="text"], #staticform textarea {
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
-    font-family: inherit;
-  }
-
-  #staticform input[type="submit"] {
-    padding: 15px;
-    margin: 10px;
-    border-radius: 25px;
-    border: #1f36e0 2px solid;
-    color: #f1f7fe;
-    background-color: #1f36e0;
-    text-decoration: none;
-    justify-self: center;
-    font-size: 1em;
-    display: inline-block;
-    width: fit-content;
-  }
-
-  #staticform input[type="submit"]:hover {
-    background-color: transparent;
-    color: #1f36e0;
-  }
-
-  @media (max-width: 1200px){
-    .body{
-      padding-top: 150px;
-    }
-    #menu{
-      padding-top: 10px;
-      display: block;
-      position: fixed;
-      flex-direction: row;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-      background-color: transparent;
-      color:#101b72;
-      text-align: center;
-      justify-content: space-around;
-      line-height: 50px;
-    }
-
-    #menuitems{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      width: 100%;
-    }
-
-    .title{
-      padding-top: 10%;
-      font-size: 0.75em;
-      white-space: nowrap;
-    }
-  }
-
-  @media (max-width: 700px){
-    .body{
-      padding: 0;
-      margin: 30px;
-    }
-    .container{
-      width: 100%;
-    }
-    .rhetorical{
-      width: 70%;
-    }
-    .title{
-      padding-top: 20%;
-      font-size: 0.5em;
-      white-space: nowrap;
-    }
-
-    #menu{
-      margin-top: 0;
-      padding-top: 0;
-      display: block;
-      position: fixed;
-      flex-direction: row;
-      top: 0;
-      left: 0;
-      width: 90%;
-      height: 50px;
-      background-color: transparent;
-      color:#101b72;
-      text-align: center;
-      justify-content: space-around;
-      line-height: 50px;
-      font-size: 8px;
-    }
-
-    .call-inter{
-      height: 300px;
-      width: 400px;
-    }
-
-    #about p {
-      font-size: 18px;
-    }
-
-    #our-team{
-      flex-direction: column;
-    }
-
-    .member{
-      margin: 0;
-    }
-  }
-
-
+}
 </style>
