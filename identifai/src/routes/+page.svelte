@@ -97,6 +97,12 @@
 					</div>
 				</div>
 			</div>
+			<div class="text-separator">
+				<div class="solution">
+					<h3>Proactive Solutions</h3>
+					<h4>Our Photographic Firewall system ----</h4>
+				</div>
+			</div>
 			<div class="card mobile">
 				<div class="card-content">
 					<div class="card-image-mobile">
@@ -142,10 +148,10 @@
 	:global(html) {
 		scroll-behavior: smooth;
 	}
+	
 	/* -- ↓ ↓ ↓ background gardient and grid styles ↓ ↓ ↓ -- */
 
-	/* 
-content inspector nuclear option:
+/*	
 * {
   outline: 1px solid #f00 !important;
 }
@@ -157,17 +163,7 @@ content inspector nuclear option:
 		align-items: center;
 		align-content: center;
 		font-family:
-			system-ui,
-			-apple-system,
-			BlinkMacSystemFont,
-			'Segoe UI',
-			Roboto,
-			Oxygen,
-			Ubuntu,
-			Cantarell,
-			'Open Sans',
-			'Helvetica Neue',
-			sans-serif;
+			'Syne', 'Inter';
 		background: linear-gradient(
 			-45deg,
 			var(--gradient-one),
@@ -179,6 +175,39 @@ content inspector nuclear option:
 		background-size: 400% 400%;
 		z-index: -1;
 		margin: 0%;
+	}
+
+	h1 {
+		font-family: 'Syne';
+		color: white;
+		font-weight: 800;
+		animation-name: glow;
+		animation-duration: 3s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+	}
+	h2 {
+		font-family: 'Inter';
+		color: white;
+		font-weight: 100;
+	
+	}
+	h3 {
+		font-family: 'Syne';
+		color: white;
+		font-weight: 700;
+
+	}
+	h4 {
+		font-family: 'Inter';
+		color: rgb(240, 240, 240);
+		font-weight: 400;
+	}
+	p{
+		font-family: 'Inter';
+		color: rgb(240, 240, 240);
+		font-weight: 100;
+	
 	}
 
 	/* -- ↓ ↓ ↓ background gradient effect ↓ ↓ ↓ -- */
@@ -200,11 +229,16 @@ content inspector nuclear option:
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
+		align-items: center;
+		justify-content: center;
+		justify-self: center;
 	}
 
 	.rhetorical {
 		display: flex;
+		justify-content: center;
 		flex-direction: row;
+		align-items: center;
 	}
 
 	.rhetorical h2 {
@@ -227,28 +261,27 @@ content inspector nuclear option:
 	@keyframes glow-two {
 		from {
 			text-shadow:
-				0px 0px 5px #fff,
-				0px 0px 3px #614ad3;
+				0px 0px 3px #fff,
+				0px 0px 1px #614ad3;
 		}
 		to {
 			text-shadow:
-				0px 0px 10px #fff,
-				0px 0px 5px #614ad3;
+				0px 0px 5px #fff,
+				0px 0px 4px #614ad3;
 		}
 	}
 
 	.rhetorical p {
 		color: white;
 		font-size: 20px;
+		font-weight: 100;
 		margin-top: 20px;
 		margin-bottom: 20px;
 		width: 60%;
 	}
 
 	.solution {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+		justify-self: center;
 	}
 	.solution h3 {
 		color: white;
@@ -349,7 +382,7 @@ content inspector nuclear option:
 		color: white;
 		margin-bottom: 50px;
 		font-size: 72px;
-		font-weight: 700;
+		font-weight: 800;
 		width: 70%;
 		text-align: center;
 	}
@@ -371,10 +404,6 @@ content inspector nuclear option:
 		background-clip: text;
 		color: transparent;
 		font-weight: 700;
-		animation-name: glow;
-		animation-duration: 3s;
-		animation-iteration-count: infinite;
-		animation-direction: alternate;
 	}
 
 	@keyframes glow {
@@ -391,6 +420,8 @@ content inspector nuclear option:
 	}
 
 	.info-card {
+		font-family: 'Inter';
+		font-weight: 200;
 		color: white;
 		font-size: 20px;
 		margin-top: 20px;
@@ -399,22 +430,8 @@ content inspector nuclear option:
 		text-align: center;
 	}
 
-	.rhetorical h2 {
-		color: white;
-		font-size: 40px;
-		margin-top: 20px;
-		margin-bottom: 20px;
-		text-align: center;
-	}
 
-	.rhetorical p {
-		color: white;
-		font-size: 20px;
-		margin-top: 20px;
-		margin-bottom: 20px;
-		width: 70%;
-		text-align: center;
-	}
+
 
 	/* -- ↓ ↓ ↓ card effects ↓ ↓ ↓ -- */
 
@@ -551,15 +568,6 @@ content inspector nuclear option:
 
 	/* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
 
-	h1,
-	h2,
-	h3,
-	h4 {
-		color: rgb(240, 240, 240);
-		font-weight: 400;
-		margin: 0px;
-	}
-
 	.card-image-apps {
 		align-content: center;
 		display: flex;
@@ -586,9 +594,9 @@ content inspector nuclear option:
 
 	.card-image-apps img {
 		opacity: 0.45;
-		height: 50%;
+		height: 80%;
 		width: auto;
-		max-height: 900px;
+		max-height: 416px;
 		transform: scale(0.7);
 		transition: transform 0.3s ease-in-out;
 		user-select: none;
@@ -601,9 +609,9 @@ content inspector nuclear option:
 
 	.card-image-mobile img {
 		opacity: 0.45;
-		height: 40%;
+		height: 80%;
 		width: auto;
-		max-height: 900px;
+		max-height: 416px;
 		transform: scale(0.8);
 		transition: transform 0.3s ease-in-out;
 		user-select: none;
