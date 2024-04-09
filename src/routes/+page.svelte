@@ -4,6 +4,8 @@
 	let favicon = '/eyecon.png';
 	let mobile = '/mobile.png';
 	let meetingAdd = '/meeting-add.png';
+	let pVann = '/pvann.jpeg';
+	let jMarciano = '/jmarciano.jpeg';
 
 	let cards;
 	function handleMouseMove(e) {
@@ -89,7 +91,7 @@
         if (typeof window !== 'undefined') {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            particleCount = calculateParticleCount();
+            particleCount = calculateParticleCount() * 2;
             initParticles();
         }
     }
@@ -99,7 +101,7 @@
             ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            particleCount = calculateParticleCount();
+            particleCount = calculateParticleCount() * 2;
             initParticles();
             animate();
             window.addEventListener('resize', onResize);
@@ -120,16 +122,11 @@
 	</head>
 	<canvas bind:this={canvas} id="particleCanvas"></canvas>
 	<div class="content" id="content">
-		
-		<div class="title-card-gradient">
-			<h1 class="title-card">We are IdentifAI</h1>
+			<h1 class="title-card">Defend Against Deepfakes</h1>
 			<h2 class="info-card">
-				Deepfakes have become a significant threat to the fabric of our society. That’s why
-				IdentifAI seeks to create a transparent internet in an age of ever-improving artificial
-				intelligence. <br />
-				We take a novel approach to address the challenge of deepfakes; our platform offers a streamlined
-				service for protecting, managing, and monitoring image veracity in real time for enterprises
-				at high risk of deepfake attacks.
+				Deepfakes have become a significant threat to the fabric of our society. That’s 
+				why IdentifAI has created proactive and reactive solutions to protect and increase 
+				transparency for enterprises in an age of ever-improving artificial intelligence.
 			</h2>
 			<div class="learn-more">
 				<a href="#cards">
@@ -137,7 +134,6 @@
 					<div class="arrow"></div>
 				</a>
 			</div>
-		</div>
 		<div id="cards" bind:this={cards} on:mousemove={handleMouseMove} role="presentation">
 			<div class="card ui-demo">
 				<div class="card-content">
@@ -228,6 +224,30 @@
 				</div>
 			</div>
 		</div>
+		<div class="solution"><h3>Our Team</h3></div>
+		<div class="team">
+			<div class="member">
+				<img src={pVann} alt="pVann"/>
+				<h3>Paul Vann: Co-Founder</h3>
+				<p>Paul is a seasoned cybersecurity professional, with experience across numerous emerging 
+					markets in the field. He has worked at a wide array of cybersecurity and software development
+					startups, helping to ensure a more secure future for all. Paul additionally is passionate 
+					about emerging technologies in the space and was recognized as a Top rated Speaker at the 
+					RSA Conference in 2023.</p>
+			</div>
+			<div class="member">
+				<img src={jMarciano} alt="jMarciano"/>
+				<h3>Justin Marciano: Co-Founder</h3>
+				<p>Justin is the Co-Founder and CEO of IdentifAI. Studying economics
+					with a concentration in finance at the University of Virginia, he
+					has navigated his way through the venture capital, blockchain, and
+					payment sectors, aligning his career path with his enthusiasm for
+					emerging technologies. Justin currently works in product management
+					and has previously worked at Stepstone Group as a VC & Growth
+					Analyst.</p>
+			</div>
+		</div>
+
 	</div>
 </body>
 
@@ -261,14 +281,7 @@
 		align-content: center;
 		font-family:
 			'Syne', 'Inter';
-		background: linear-gradient(
-			-45deg,
-			var(--gradient-one),
-			var(--gradient-two),
-			var(--gradient-three),
-			var(--gradient-four)
-		);
-		animation: gradient 15s ease infinite;
+		background: #05060f linear-gradient(0deg,rgba(216,236,248,.06),rgba(152,192,239,.06));
 		background-size: 400% 400%;
 		z-index: -1;
 		margin: 0%;
@@ -283,6 +296,22 @@
 		animation-iteration-count: infinite;
 		animation-direction: alternate;
 	}
+
+
+@keyframes spotlight-animation {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
 	h2 {
 		font-family: 'Inter';
 		color: white;
@@ -319,7 +348,7 @@
 			background-position: 0% 50%;
 		}
 	}
-	/* -- ↓ ↓ ↓ background grid style ↓ ↓ ↓ -- */
+	/* -- ↓ ↓ ↓ background particle style ↓ ↓ ↓ -- */
 
 	canvas#particleCanvas {
 		position: fixed; 
@@ -469,16 +498,6 @@
 		text-align: center;
 	}
 
-	.title-card-gradient {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		background: radial-gradient(var(--bg-color) 35%, transparent 65%);
-		background-size:
-			100% 100%,
-			4vh 4vh;
-	}
 
 	.content h1 {
 		margin-top: 180px;
@@ -758,6 +777,51 @@
 		color: rgba(255, 255, 255, 0.5);
 		font-size: 0.85em;
 		margin-top: 8px;
+	}
+	.team {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		margin: 20px;
+		gap: 30px;
+	}
+	.member {
+		background: rgba(255, 255, 255, 0.03);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(4.4px);
+        -webkit-backdrop-filter: blur(4.4px);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+		width: fit-content;
+		max-width: fit-content;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+	}
+	.member img {
+		border-radius: 5%;
+		width: 300px;
+		aspect-ratio: 1/1;
+		overflow: hidden;
+		width: 250px;
+		border-radius: 8px;
+		box-shadow: rgba(62, 63, 168, 0.3) 0px 10px 30px 8px,
+			rgba(62, 63, 168, 0.4) 0px 0px 0px 2px;
+		margin: 10%;
+		opacity: 0.8;
+	}
+
+	.member h3 {
+		color: white;
+		margin: 0;
+	}
+
+	.member p {
+		color: white;
+		margin: 10px;
+		width: 350px;
+		padding: 10px;
 	}
 
 	/* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
