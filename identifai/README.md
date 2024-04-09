@@ -50,15 +50,40 @@ Suggestion - run this code on VScode with the [Svelte Extension](https://marketp
 
 ## Key Components
   ### +page.svelte
-
-
-
-## API Integration
-
+ A Svelte component that serves as a primary interface for our application. It is responsible for rendering the main content of the application.
+  ### +layout.svelte
+  A Svelte component that provides the layout for our application. It includes the header, footer, and main content area. It uses slots to allow other components to insert content into these areas.
+  ### app.html
+  The main HTML file for our application. It includes the root element where our Svelte application is mounted. It also includes the script tag that loads our compiled Svelte application.
 
 ## Deployment
 
-Here I'm going to put info on the server stuff
+### First server access
+SSH into the server
+```
+ssh root@137.184.14.124
+```
+Install the NGINX Webserver
+```
+apt install nginx
+```
+Install the Python required libraries
+
+```
+apt install python3-fastapi
+```
+Navigate to the respoistory containing the .git
+```
+cd landingPage/
+```
+Pull the github code into the server
+```
+git pull origin
+```
+Run the code!
+```
+npm run dev -- --host
+```
 
 ## Known Issues
 
