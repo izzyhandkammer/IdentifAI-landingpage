@@ -1,38 +1,65 @@
-# create-svelte
+# landingPage
+Repo Containing New Landing Page Frontend 
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## Table of Contents
+1. [Overview](#overview)
+2. [Folder Structure](#folder-structure)
+3. [Development Setup](#development-setup)
+4. [Key Components](#key-components)
+5. [API Integration](#api-integration)
 
-## Creating a project
+## Overview
+This landing page is designed for IdentifAi and built using the Svelte framework to create a fast and interactive user experience.
 
-If you're seeing this, you've probably already done this step. Congrats!
+### Why Svelte?
+Svelte uses a compiler driven approach. This means that Svelte shifts much of the heavy lifting from the browser to compile time, resulting in smaller bundle sizes and faster runtime performance.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+More specifically, Svelte´s compiler first analyzes the application code and generates optimized JavaScript code design to run faster and use less memory. This framework also provides us with a reactive programming model, where changes to state variables automatically trigger updates to the DOM.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Folder Structure
 
-## Developing
+    ├── identifai               
+    │   ├── src                     # 
+    |   │   ├── lib                 # 
+    |   |   |   └── assets          # Extra visual elements
+    │   |   ├── routes              # 
+    |   |   |   └── +page.svelte    # Our webpage
+    |   |   |   └── +layout.svelte  # Component that displays the header and footer
+    │   |   └── app.html            # Our fallback page
+    │   └── static                  # All our visual elements
+    └── ...
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-```bash
-npm run dev
+## Development Setup
+Suggestion - run this code on VScode with the [Svelte Extension](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) installed
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. Clone the repository
+2. Navigate to the project directory.
+3. Install dependencies:
+     ```bash
+     npm install
+     ```
+4. Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+    
+    ```bash
+    npm run dev
+    
+    # or start the server and open the app in a new browser tab
+    npm run dev -- --open
+    ```
 
-## Building
+## Key Components
+  ### +page.svelte
 
-To create a production version of your app:
 
-```bash
-npm run build
-```
 
-You can preview the production build with `npm run preview`.
+## API Integration
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Deployment
+
+Here I'm going to put info on the server stuff
+
+## Known Issues
+
+Card hover effect refusing to work in directory containing .git but working on a local copy without git despite excact same file structure and contents...
