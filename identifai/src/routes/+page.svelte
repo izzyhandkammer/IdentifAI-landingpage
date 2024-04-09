@@ -232,6 +232,7 @@
 		align-items: center;
 		justify-content: center;
 		justify-self: center;
+		margin: auto;
 	}
 
 	.rhetorical {
