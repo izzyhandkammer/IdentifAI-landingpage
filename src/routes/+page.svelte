@@ -463,15 +463,7 @@
     margin-bottom: 20px;
     font-weight: 800;
     width: 40%;
-    animation-name: glow-two;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    background-color: linear-gradient(
-      180deg,
-      rgb(175, 172, 172) 70%,
-      transparent
-    ); /* adjust colors as needed */
+    color: #9dc3f7;
   }
   @keyframes glow-two {
     from {
@@ -896,10 +888,63 @@
       align-items: flex-start;
       overflow: auto;
     }
+    .content {
+      justify-content: center;
+      align-items: center;
+      justify-self: center;
+    }
+    .heroT {
+      justify-content: center;
+      margin: 20px;
+      height: 50%;
+      padding: 10px;
+    }
+    .heroT h1 {
+      font-size: 35px;
+      justify-self: center;
+      justify-content: center;
+      margin: 20px;
+      text-align: center;
+    }
+    .info-card {
+      width: 90%;
+      padding-top: 70px;
+    }
+    .rhetorical {
+      flex-direction: column;
+    }
+    .rhetorical h2 {
+      width: 85%;
+    }
+    .team {
+      flex-direction: column;
+    }
+
+    .team .member {
+      width: 50%;
+    }
+    .team .member img {
+      width: 85%;
+    }
+    .team .member p {
+      width: 85%;
+    }
+    .team .member h3 {
+      width: 85%;
+    }
+
+    .rhetorical p {
+      width: 85%;
+    }
 
     #cards {
       max-width: 1000px;
       padding: 10px 0px;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      justify-self: center;
     }
 
     .card {
@@ -910,7 +955,11 @@
 
   @media (max-width: 500px) {
     .card {
-      height: 180px;
+      width: 90%;
+    }
+
+    .solution h3 {
+      font-size: 30px;
     }
 
     .card-info-wrapper {
@@ -925,6 +974,9 @@
       font-size: 0.8em;
       margin-top: 4px;
     }
+	.team .member {
+		width: 90%;
+	}
   }
 
   @media (max-width: 320px) {
