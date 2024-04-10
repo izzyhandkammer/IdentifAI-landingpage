@@ -6,7 +6,7 @@
   let particles = [];
   let particleCount;
   let favicon = "/eyecon.png";
-  let status = "";
+  
   class Particle {
     constructor() {
       this.reset();
@@ -96,6 +96,11 @@
       window.removeEventListener("resize", onResize);
     }
   });
+
+  // Form submission
+  
+  let status = "";
+
   const handleSubmit = async (data) => {
     status = "Submitting...";
     const formData = new FormData(data.currentTarget);
@@ -105,7 +110,7 @@
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Accept: "application/json",
       },
       body: json,
@@ -113,7 +118,7 @@
     const result = await response.json();
     if (result.success) {
       console.log(result);
-      status = result.message || "Success";
+      status = "Thank you for your message! We will try to get back to you within the next 48 hours.";
     }
   };
 </script>
@@ -133,6 +138,7 @@
           name="access_key"
           value="d3ade7d6-8f02-4581-8436-835952ee3914"
         />
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
         <div class="values-separator">
           <p>Your Name:</p>
           <input type="text" name="name" required />
@@ -149,7 +155,7 @@
           <input type="submit" />
         </div>
       </form>
-      <div>{status}</div>
+      <div class="status-message">{status}</div>
     </div>
   </div>
 </body>
@@ -315,9 +321,19 @@
   input[type="email"],
   textarea {
     font-size: 18px;
+    color: white;
     padding: 10px;
     margin: 5px;
     opacity: 0.8;
     border-radius: 15px;
+    border-width: 1px;
+    background: rgba(40, 37, 61, 0.5);
+  }
+
+  .status-message {
+    padding-top: 10px;
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 10px;
   }
 </style>
