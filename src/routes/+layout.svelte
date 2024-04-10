@@ -6,7 +6,7 @@
 
 <header>
 	<div class="header-left">
-		<h1><img src={logo} alt="logo" /></h1>
+		<h1><a href="https://www.landing.identifai.info/"><img src={logo} alt="logo"/></a></h1>
 	</div>
 	<div class="header-right">
 		<a href="https://identifai.substack.com/" target="_blank"> Blog </a>
