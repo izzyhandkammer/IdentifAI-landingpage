@@ -14,24 +14,15 @@ jobs:
         run: echo "Starting workflow"
         
       - name: Install SSH keys
-        run:
-          echo "Installing SSH keys"
-          mkdir -p ~/.ssh
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
           
       - name: Pulling Changes
         run:
           echo "Pulling Changes"
-          cd ${{ secrets.WORK_DIR }} && git pull origin sveltepage
-        
-      - name: Starting npm dev server
-        run: echo "Starting npm dev server"
-        
-      - name: Start npm dev server
-        run:
-          npm run dev -- --host
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull origin sveltepage && npm run dev -- --host"
 
       - name: cleanup
         run: rm -rf ~/.ssh
