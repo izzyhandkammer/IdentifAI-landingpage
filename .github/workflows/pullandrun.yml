@@ -12,9 +12,6 @@ jobs:
       steps:
       - name: Starting workflow
         run: echo "Starting workflow"
-
-      - name: Install Dependencies
-        run: npm install
         
       - name: Install SSH keys
         run:
@@ -27,7 +24,7 @@ jobs:
       - name: Pulling Changes
         run:
           echo "Pulling Changes"
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git pull origin sveltepage"
+          cd ${{ secrets.WORK_DIR }} && git pull origin sveltepage
         
       - name: Starting npm dev server
         run: echo "Starting npm dev server"
@@ -35,6 +32,6 @@ jobs:
       - name: Start npm dev server
         run:
           npm run dev -- --host
-          
+
       - name: cleanup
         run: rm -rf ~/.ssh
