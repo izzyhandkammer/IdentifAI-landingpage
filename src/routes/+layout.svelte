@@ -9,6 +9,7 @@
 		<h1><a href="https://www.landing.identifai.info/"><img src={logo} alt="logo"/></a></h1>
 	</div>
 	<div class="header-right">
+		<a href="/team"> Team </a>
 		<a href="/contact"> Contact </a>
 		<a href="https://identifai.substack.com/" target="_blank"> Blog </a>
 		<a
