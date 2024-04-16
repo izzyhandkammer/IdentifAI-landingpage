@@ -660,7 +660,7 @@
     opacity: 1;
   }
 
-  .card::before, 
+  .card::before,
   .card::after {
     border-radius: inherit;
     content: "";
