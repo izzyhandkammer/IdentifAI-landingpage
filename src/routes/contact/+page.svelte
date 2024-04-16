@@ -257,6 +257,7 @@
     flex-direction: column;
     padding: 40px;
     margin: 10px;
+    margin-bottom: 40px;
   }
 
   .form-wrapper:after {

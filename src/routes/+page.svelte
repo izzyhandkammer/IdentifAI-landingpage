@@ -4,8 +4,6 @@
   let favicon = "/eyecon.png";
   let mobile = "/mobile.png";
   let meetingAdd = "/meeting-add.png";
-  let pVann = "/pvann.jpeg";
-  let jMarciano = "/jmarciano.jpeg";
 
   let cards;
   function handleMouseMove(e) {
@@ -144,6 +142,15 @@
       on:mousemove={handleMouseMove}
       role="presentation"
     >
+      <div class="rhetorical">
+        <p style="width: 80%">
+          To safeguard yourself from the risks of deepfakes, adopting a
+          proactive stance is key. At IdentifAI, we've engineered a cutting-edge
+          solution designed to actively protect and monitor the images you share
+          online, ensuring your digital persona is secure from misuse and
+          manipulation.
+        </p>
+      </div>
       <div class="card ui-demo">
         <div class="card-content">
           <div class="card-image-ui-demo"></div>
@@ -240,7 +247,8 @@
         </div>
       </div>
     </div>
-</body>
+  </div></body
+>
 
 <style>
   /* -- ↓ ↓ ↓ global styles ↓ ↓ ↓ -- */
@@ -840,22 +848,6 @@
       flex-direction: column;
     }
     .rhetorical h2 {
-      width: 85%;
-    }
-    .team {
-      flex-direction: column;
-    }
-
-    .team .member {
-      width: 50%;
-    }
-    .team .member img {
-      width: 85%;
-    }
-    .team .member p {
-      width: 85%;
-    }
-    .team .member h3 {
       width: 85%;
     }
 

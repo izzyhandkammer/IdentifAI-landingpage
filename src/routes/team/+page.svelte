@@ -212,12 +212,6 @@
     margin-top: 60px;
     margin-bottom: 20px;
   }
-  .solution h4 {
-    color: white;
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
 
   /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
 
