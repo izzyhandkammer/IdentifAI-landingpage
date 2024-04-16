@@ -119,6 +119,10 @@
         emerging technologies in the space and was recognized as a Top rated
         Speaker at the RSA Conference in 2023.
       </p>
+      <a
+			href="https://www.linkedin.com/in/paul-vann-b996b2120"
+			target="_blank"><button id="buttons" class="glow-button">LinkedIn</button></a
+		>
     </div>
     <div class="member">
       <img src={jMarciano} alt="jMarciano" />
@@ -131,6 +135,10 @@
         Justin currently works in product management and has previously worked
         at Stepstone Group as a VC & Growth Analyst.
       </p>
+      <a
+			href="https://www.linkedin.com/in/justin-marciano32"
+			target="_blank"><button id="buttons" class="glow-button">LinkedIn</button></a
+		>
     </div>
   </div>
 </body>
@@ -212,6 +220,26 @@
     margin-top: 60px;
     margin-bottom: 20px;
   }
+
+  .glow-button {
+		font-weight: 500;
+		padding: 10px 20px;
+		border: 1px solid #d0afe5;
+		border-radius: 5px;
+		background: transparent;
+		color: white;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 10px 1px #37195e;
+    margin: 20px;
+    margin-top: 0;
+	}
+
+	.glow-button:hover {
+		box-shadow: 0 0 15px 3px #d0afe5;
+		opacity: 0.9;
+		background-color: #1e0e34;
+	}
 
   /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
 
