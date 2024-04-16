@@ -173,7 +173,7 @@
           </p>
         </div>
         <div class="solution">
-          <h3>Reactive defense</h3>
+          <h3>Reactive Plugin</h3>
           <h4>Utilize our KYE system for ----</h4>
         </div>
       </div>
@@ -212,7 +212,7 @@
       </div>
       <div class="text-separator">
         <div class="solution">
-          <h3>Proactive Solutions</h3>
+          <h3>Proactive Defense</h3>
           <h4>Our Photographic Firewall system ----</h4>
         </div>
       </div>
