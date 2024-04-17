@@ -174,7 +174,16 @@
         </div>
         <div class="solution">
           <h3>Reactive Plugin</h3>
-          <h4>Utilize our KYE system for ----</h4>
+          <h4>
+            Our innovative Photographic Firewall solution offers proactive
+            defense against manipulations by generative AI. By embedding a
+            robust layer of defense directly within images, our patent-pending
+            anti-deepfake technology empowers media to function as its own
+            safeguard, effectively thwarting malicious alterations. Our powerful
+            mechanism operates seamlessly, maintaining the original image
+            quality while offering real-time protection for individuals or
+            entities particularly vulnerable to deepfake attacks.
+          </h4>
         </div>
       </div>
       <div class="card apps">
@@ -213,7 +222,15 @@
       <div class="text-separator">
         <div class="solution">
           <h3>Proactive Defense</h3>
-          <h4>Our Photographic Firewall system ----</h4>
+          <h4>
+            Our "Know Your Employee" or KYE product provides real time
+            protection for video conferencing environments from deepfake-enabled
+            social engineering attacks. Employing technologies, the KYE process
+            verifies the facial and audio profiles of participants, ensuring
+            authenticity and integrity without depending on machine learning
+            models. This targeted approach offers a sustainable, real-time
+            defense against potential cyber threats.
+          </h4>
         </div>
       </div>
       <div class="card mobile">
