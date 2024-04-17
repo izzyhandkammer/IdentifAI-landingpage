@@ -131,7 +131,7 @@
       ever-improving artificial intelligence.
     </h2>
     <div class="learn-more">
-      <a href="#cards">
+      <a href="#product">
         <p>Learn more</p>
         <div class="arrow"></div>
       </a>
@@ -173,7 +173,7 @@
           </p>
         </div>
         <div class="solution">
-          <h3>Reactive Plugin</h3>
+          <h3 id="product" class="subt">Reactive Plugin</h3>
           <h4>
             Our innovative Photographic Firewall solution offers proactive
             defense against manipulations by generative AI. By embedding a
@@ -221,7 +221,7 @@
       </div>
       <div class="text-separator">
         <div class="solution">
-          <h3>Proactive Defense</h3>
+          <h3 class="subt">Proactive Defense</h3>
           <h4>
             Our "Know Your Employee" or KYE product provides real time
             protection for video conferencing environments from deepfake-enabled
@@ -454,13 +454,16 @@
   }
 
   .rhetorical h2 {
-    color: white;
-    font-size: 40px;
+    font-size: 2.5em;
     margin-top: 20px;
     margin-bottom: 20px;
     font-weight: 800;
     width: 40%;
-    color: #9dc3f7;
+    position: relative;
+    color: #d8ecf8;
+    background-color: linear-gradient(0deg, #9dc3f7 0, #39434e 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
   }
   @keyframes glow-two {
     from {
@@ -486,18 +489,34 @@
 
   .solution {
     justify-self: center;
+    position: relative;
   }
+  .solution::before {
+    content: "";
+    display: block;
+    height: 100px;
+    pointer-events: none;
+  }
+
   .solution h3 {
-    color: white;
-    font-size: 60px;
-    margin-top: 60px;
-    margin-bottom: 20px;
+    font-size: 1.5em;
+    position: relative;
+    width: fit-content;
+    margin: auto;
+	margin-top: 20px;
+    color: #d8ecf8;
+    text-shadow: 0 2px 16px rgba(174, 207, 242, 0.24);
+    background: linear-gradient(0deg, #d8ecf8 0, #39434e 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .solution h4 {
     color: white;
     font-size: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-weight: 100;
   }
 
   .content {
@@ -505,6 +524,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .solution h3.subt::before,
+  .solution h3.subt::after {
+    position: absolute;
+    top: 60%;
+    display: block;
+    content: "";
+    width: 5em;
+    height: 1px;
+    opacity: 0.5;
+  }
+
+  .solution h3.subt::before {
+    background: linear-gradient(-90deg, #9dc3f7 0%, transparent 100%);
+    right: 120%;
+    top: 50%;
+  }
+  .solution h3.subt::after {
+    background: linear-gradient(90deg, #9dc3f7 0%, transparent 100%);
+    left: 120%;
+    top: 50%;
   }
 
   .learn-more {

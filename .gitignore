@@ -14,3 +14,4 @@ vite.config.ts.timestamp-*
 .prettierrc
 landingpage/
 /.vscode
+/.github
