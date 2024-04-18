@@ -73,6 +73,7 @@
   }
 
   function animate() {
+    if (canvas === null) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach((particle) => {
       particle.update();
@@ -503,7 +504,7 @@
     position: relative;
     width: fit-content;
     margin: auto;
-	margin-top: 20px;
+    margin-top: 20px;
     color: #d8ecf8;
     text-shadow: 0 2px 16px rgba(174, 207, 242, 0.24);
     background: linear-gradient(0deg, #d8ecf8 0, #39434e 100%);

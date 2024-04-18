@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - sveltepage
-
 jobs:
     run_pull:
       name: run pull
@@ -13,6 +12,20 @@ jobs:
       - name: Starting workflow
         run: echo "Starting workflow"
         
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      
+      - name: Install npm
+        run: npm install
+
+      - name: Run ESLint
+        run: npx lint .
+
       - name: Install SSH keys
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa

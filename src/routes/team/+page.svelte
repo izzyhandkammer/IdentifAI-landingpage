@@ -60,6 +60,7 @@
   }
 
   function animate() {
+    if (canvas === null) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach((particle) => {
       particle.update();
@@ -82,6 +83,7 @@
   }
 
   onMount(() => {
+    canvas = document.querySelector('canvas');
     if (typeof window !== "undefined") {
       ctx = canvas.getContext("2d");
       canvas.width = window.innerWidth;
