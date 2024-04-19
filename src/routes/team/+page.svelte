@@ -1,105 +1,9 @@
 <script>
   import { onMount, onDestroy } from "svelte";
-  let favicon = "/eyecon.png";
-  let pVann = "/pvann.jpeg";
-  let jMarciano = "/jmarciano.jpeg";
-
-  let canvas;
-  let ctx;
-  let particles = [];
-  let particleCount;
-
-  class Particle {
-    constructor() {
-      this.reset();
-      this.y = Math.random() * canvas.height;
-      this.fadeDelay = Math.random() * 600 + 100;
-      this.fadeStart = Date.now() + this.fadeDelay;
-      this.fadingOut = false;
-    }
-
-    reset() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.speed = Math.random() / 5 + 0.1;
-      this.opacity = 1;
-      this.fadeDelay = Math.random() * 600 + 100;
-      this.fadeStart = Date.now() + this.fadeDelay;
-      this.fadingOut = false;
-    }
-
-    update() {
-      this.y -= this.speed;
-      if (this.y < 0) {
-        this.reset();
-      }
-
-      if (!this.fadingOut && Date.now() > this.fadeStart) {
-        this.fadingOut = true;
-      }
-
-      if (this.fadingOut) {
-        this.opacity -= 0.008;
-        if (this.opacity <= 0) {
-          this.reset();
-        }
-      }
-    }
-
-    draw() {
-      ctx.fillStyle = `rgba(${255 - (Math.random() * 255) / 2}, 255, 255, ${this.opacity})`;
-      ctx.fillRect(this.x, this.y, 0.4, Math.random() * 2 + 1);
-    }
-  }
-
-  function initParticles() {
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-  }
-
-  function animate() {
-    if (canvas === null) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach((particle) => {
-      particle.update();
-      particle.draw();
-    });
-    requestAnimationFrame(animate);
-  }
-
-  function calculateParticleCount() {
-    return Math.floor((canvas.width * canvas.height) / 6000);
-  }
-
-  function onResize() {
-    if (typeof window !== "undefined") {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      particleCount = calculateParticleCount() * 3;
-      initParticles();
-    }
-  }
-
-  onMount(() => {
-    canvas = document.querySelector('canvas');
-    if (typeof window !== "undefined") {
-      ctx = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      particleCount = calculateParticleCount() * 3;
-      initParticles();
-      animate();
-      window.addEventListener("resize", onResize);
-    }
-  });
-
-  onDestroy(() => {
-    if (typeof window !== "undefined") {
-      window.removeEventListener("resize", onResize);
-    }
-  });
+  import Background from "../../components/Background.svelte";
+  const favicon = "/eyecon.png";
+  const pVann = "/pvann.jpeg";
+  const jMarciano = "/jmarciano.jpeg";
 </script>
 
 <head>
@@ -107,7 +11,7 @@
   <link rel="icon" type="image/x-icon" src={favicon} />
 </head>
 <body>
-  <canvas bind:this={canvas} id="particleCanvas"></canvas>
+  <Background />
   <div class="solution"><h3>Our Team</h3></div>
   <div class="team">
     <div class="member">
@@ -121,10 +25,9 @@
         emerging technologies in the space and was recognized as a Top rated
         Speaker at the RSA Conference in 2023.
       </p>
-      <a
-			href="https://www.linkedin.com/in/paul-vann-b996b2120"
-			target="_blank"><button id="buttons" class="glow-button">LinkedIn</button></a
-		>
+      <a href="https://www.linkedin.com/in/paul-vann-b996b2120" target="_blank"
+        ><button id="buttons" class="glow-button">LinkedIn</button></a
+      >
     </div>
     <div class="member">
       <img src={jMarciano} alt="jMarciano" />
@@ -137,34 +40,31 @@
         Justin currently works in product management and has previously worked
         at Stepstone Group as a VC & Growth Analyst.
       </p>
-      <a
-			href="https://www.linkedin.com/in/justin-marciano32"
-			target="_blank"><button id="buttons" class="glow-button">LinkedIn</button></a
-		>
+      <a href="https://www.linkedin.com/in/justin-marciano32" target="_blank"
+        ><button id="buttons" class="glow-button">LinkedIn</button></a
+      >
     </div>
   </div>
 </body>
 
 <style>
-  canvas#particleCanvas {
-    position: fixed;
-    pointer-events: none;
-    animation: load 0.4s ease-in-out forwards;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  body {
+    flex-direction: column;
+    background-color: var(--bg-color);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-family: "Syne", "Inter";
+    background: #05060f
+      linear-gradient(
+        0deg,
+        rgba(216, 236, 248, 0.06),
+        rgba(152, 192, 239, 0.06)
+      );
+    background-size: 400% 400%;
+    z-index: -1;
+    margin: 0%;
   }
-  @keyframes load {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
   .team {
     display: flex;
     flex-direction: row;
@@ -224,24 +124,24 @@
   }
 
   .glow-button {
-		font-weight: 500;
-		padding: 10px 20px;
-		border: 1px solid #d0afe5;
-		border-radius: 5px;
-		background: transparent;
-		color: white;
-		cursor: pointer;
-		transition: all 0.3s ease;
-		box-shadow: 0 4px 10px 1px #37195e;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: 1px solid #d0afe5;
+    border-radius: 5px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px 1px #37195e;
     margin: 20px;
     margin-top: 0;
-	}
+  }
 
-	.glow-button:hover {
-		box-shadow: 0 0 15px 3px #d0afe5;
-		opacity: 0.9;
-		background-color: #1e0e34;
-	}
+  .glow-button:hover {
+    box-shadow: 0 0 15px 3px #d0afe5;
+    opacity: 0.9;
+    background-color: #1e0e34;
+  }
 
   /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
 

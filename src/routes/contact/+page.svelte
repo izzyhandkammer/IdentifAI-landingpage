@@ -1,124 +1,34 @@
 <script>
-  import { onMount, onDestroy } from "svelte";
+  import {onMount, onDestroy} from 'svelte';
+  import Background from '../../components/Background.svelte';
 
   let canvas;
   let ctx;
   let particles = [];
   let particleCount;
-  let favicon = "/eyecon.png";
-  
-  class Particle {
-    constructor() {
-      this.reset();
-      this.y = Math.random() * canvas.height;
-      this.fadeDelay = Math.random() * 600 + 100;
-      this.fadeStart = Date.now() + this.fadeDelay;
-      this.fadingOut = false;
-    }
-
-    reset() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.speed = Math.random() / 5 + 0.1;
-      this.opacity = 1;
-      this.fadeDelay = Math.random() * 600 + 100;
-      this.fadeStart = Date.now() + this.fadeDelay;
-      this.fadingOut = false;
-    }
-
-    update() {
-      this.y -= this.speed;
-      if (this.y < 0) {
-        this.reset();
-      }
-
-      if (!this.fadingOut && Date.now() > this.fadeStart) {
-        this.fadingOut = true;
-      }
-
-      if (this.fadingOut) {
-        this.opacity -= 0.008;
-        if (this.opacity <= 0) {
-          this.reset();
-        }
-      }
-    }
-
-    draw() {
-      ctx.fillStyle = `rgba(${255 - (Math.random() * 255) / 2}, 255, 255, ${this.opacity})`;
-      ctx.fillRect(this.x, this.y, 0.4, Math.random() * 2 + 1);
-    }
-  }
-
-  function initParticles() {
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach((particle) => {
-      particle.update();
-      particle.draw();
-    });
-    requestAnimationFrame(animate);
-  }
-
-  function calculateParticleCount() {
-    return Math.floor((canvas.width * canvas.height) / 6000);
-  }
-
-  function onResize() {
-    if (typeof window !== "undefined") {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      particleCount = calculateParticleCount() * 2;
-      initParticles();
-    }
-  }
-
-  onMount(() => {
-    if (typeof window !== "undefined") {
-      ctx = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      particleCount = calculateParticleCount() * 2;
-      initParticles();
-      animate();
-      window.addEventListener("resize", onResize);
-    }
-  });
-
-  onDestroy(() => {
-    if (typeof window !== "undefined") {
-      window.removeEventListener("resize", onResize);
-    }
-  });
-
+  const favicon = '/eyecon.png';
   // Form submission
-  
-  let status = "";
+
+  let status = '';
 
   const handleSubmit = async (data) => {
-    status = "Submitting...";
+    status = 'Submitting...';
     const formData = new FormData(data.currentTarget);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Accept: "application/json",
+        'Accept': 'application/json',
       },
       body: json,
     });
     const result = await response.json();
     if (result.success) {
       console.log(result);
-      status = "Thank you for your message! We will try to get back to you within the next 48 hours.";
+      status = 'Thank you for your message! We will try to get back to you within the next 48 hours.';
     }
   };
 </script>
@@ -128,7 +38,7 @@
   <link rel="icon" type="image/x-icon" src={favicon} />
 </head>
 <body>
-  <canvas bind:this={canvas} id="particleCanvas"></canvas>
+  <Background />
   <div class="content">
     <h2>Get in Touch</h2>
     <div class="form-wrapper">
@@ -190,27 +100,7 @@
       background-position: 0% 50%;
     }
   }
-  /* -- ↓ ↓ ↓ background particle style ↓ ↓ ↓ -- */
-
-  canvas#particleCanvas {
-    position: fixed;
-    pointer-events: none;
-    animation: load 0.4s ease-in-out forwards;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  @keyframes load {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
+  
   p {
     color: white;
     font-size: 1.2rem;

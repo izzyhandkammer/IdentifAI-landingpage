@@ -1,7 +1,7 @@
 <script>
-	let logo = '/white_logo.png';
-	let twitter = '/twitter.png';
-	let linkedin = '/linkedin.png';
+	const logo = '/white_logo.png';
+	const twitter = '/twitter.png';
+	const linkedin = '/linkedin.png';
 </script>
 
 <header>
@@ -14,7 +14,8 @@
 		<a href="https://identifai.substack.com/" target="_blank"> Blog </a>
 		<a
 			href="https://calendly.com/d/494-3xs-7yt/identifai-30-minute-meeting?month=2024-04"
-			target="_blank"><button id="buttons" class="glow-button">Schedule a Demo</button></a
+			target="_blank">
+			<button id="buttons" class="glow-button">Schedule a Demo</button></a
 		>
 	</div>
 </header>
@@ -60,7 +61,7 @@
 		display: block;
 		height: 1px; /* adjust as needed */
 		width: 100%;
-		background: radial-gradient(white 30%, transparent 70%); /* adjust colors as needed */
+		background: radial-gradient(white 30%, transparent 70%);
 		position: absolute;
 		bottom: 0;
 	}
@@ -122,7 +123,7 @@
 		display: block;
 		height: 1px; /* adjust as needed */
 		width: 100%;
-		background: radial-gradient(white 30%, transparent 70%); /* adjust colors as needed */
+		background: radial-gradient(white 30%, transparent 70%);
 		position: absolute;
 		top: 0;
 	}
