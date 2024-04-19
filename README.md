@@ -19,14 +19,15 @@ More specifically, Svelte´s compiler first analyzes the application code and ge
 ## Folder Structure
 
     ├── identifai               
-    │   ├── src                     # 
-    |   │   ├── lib                 # 
-    |   |   |   └── assets          # Extra visual elements
-    │   |   ├── routes              # 
-    |   |   |   └── +page.svelte    # Our webpage
-    |   |   |   └── +layout.svelte  # Component that displays the header and footer
-    │   |   └── app.html            # Our fallback page
-    │   └── static                  # All our visual elements
+    │   ├── src                       # 
+    |   │   ├── components            # Where the page elements are stored
+    |   |   |   └── Background.svelte # The background particle effect
+    |   │   ├── lib                   # 
+    │   |   ├── routes                # 
+    |   |   |   └── +page.svelte      # Our webpage
+    |   |   |   └── +layout.svelte    # Component that displays the header and footer
+    │   |   └── app.html              # Our fallback page
+    │   └── static                    # All our visual elements
     └── ...
 
 
