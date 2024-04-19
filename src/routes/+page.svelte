@@ -1,6 +1,5 @@
 <script>
-  import {onMount, onDestroy} from 'svelte';
-  import Background from "../components/Background.svelte";
+  import Background from '../components/Background.svelte';
 
   const apps = '/apps.png';
   const favicon = '/eyecon.png';
@@ -719,17 +718,7 @@
     opacity: 0.85;
     transform: scale(1.15);
   }
-  /*
-	  .card-image-profile-creation img {
-		  opacity: 0.45;
-		  height: 70%;
-		  width: auto;
-		  max-height: 900px;
-		  transition: transform 0.3s ease-in-out;
-		  user-select: none;
-		  position: absolute;
-	  }
-  */
+
   .card:hover .card-image-profile-creation img {
     opacity: 0.85;
     transform: scale(1.15);

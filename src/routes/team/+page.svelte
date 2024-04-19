@@ -1,9 +1,8 @@
 <script>
-  import { onMount, onDestroy } from "svelte";
-  import Background from "../../components/Background.svelte";
-  const favicon = "/eyecon.png";
-  const pVann = "/pvann.jpeg";
-  const jMarciano = "/jmarciano.jpeg";
+  import Background from '../../components/Background.svelte';
+  const favicon = '/eyecon.png';
+  const pVann = '/pvann.jpeg';
+  const jMarciano = '/jmarciano.jpeg';
 </script>
 
 <head>
