@@ -18,7 +18,7 @@ jobs:
           ref: sveltepage
 
       - name: WHERE AM I?
-        run: echo pwd && echo ls *
+        run: pwd && echo ls *
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
