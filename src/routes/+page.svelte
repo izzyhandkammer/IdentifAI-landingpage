@@ -1,20 +1,21 @@
 <script>
-  import Background from '../components/Background.svelte';
+  import Background from "../components/Background.svelte";
+  import CardUpload from "../components/CardUpload.svelte";
 
-  const apps = '/apps.png';
-  const favicon = '/eyecon.png';
-  const mobile = '/mobile.png';
-  const meetingAdd = '/meeting-add.png';
+  const apps = "/apps.png";
+  const favicon = "/eyecon.png";
+  const mobile = "/mobile.png";
+  const meetingAdd = "/meeting-add.png";
 
   let cards;
   function handleMouseMove(e) {
-    for (const card of cards.getElementsByClassName('card')) {
+    for (const card of cards.getElementsByClassName("card")) {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
     }
   }
 </script>
@@ -139,36 +140,24 @@
           </h4>
         </div>
       </div>
-      <div class="card mobile">
-        <div class="card-content">
-          <div class="card-image-mobile">
-            <img src={mobile} alt="mobile" />
-          </div>
-          <div class="card-info-wrapper-mobile">
-            <div class="card-info">
-              <div class="card-info-title">
-                <h3>On the go?</h3>
-                <h4>Utilize the IdentifAI platform on any device</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card profile-creation">
-        <div class="card-content">
-          <div class="card-image-profile-creation"></div>
-          <div class="card-info-wrapper-profile-creation">
-            <div class="card-info">
-              <div class="card-info-title">
-                <h3>
-                  Create profiles for your employees, business associates, and
-                  more
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+	  <div class="horizontal-align">
+		<div class="card mobile">
+			<div class="card-content">
+			  <div class="card-image-mobile">
+				<img src={mobile} alt="mobile" />
+			  </div>
+			  <div class="card-info-wrapper-mobile">
+				<div class="card-info">
+				  <div class="card-info-title">
+					<h3>On the go?</h3>
+					<h4>Utilize the IdentifAI platform on any device</h4>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <CardUpload />
+	  </div>
     </div>
   </div></body
 >
@@ -564,11 +553,6 @@
     height: 416px;
   }
 
-  .profile-creation {
-    width: 550px;
-    height: 416px;
-  }
-
   .card-info-wrapper-apps {
     position: absolute;
     bottom: 0;
@@ -586,14 +570,6 @@
   }
 
   .card-info-wrapper-meeting-add {
-    position: absolute;
-    bottom: 0;
-    align-items: center;
-    padding: 30px 20px;
-    flex-direction: column;
-  }
-
-  .card-info-wrapper-profile-creation {
     position: absolute;
     bottom: 0;
     align-items: center;
@@ -668,14 +644,8 @@
     justify-content: center;
   }
 
-  .card-image-profile-creation {
-    align-content: center;
-    display: flex;
-    justify-content: center;
-  }
 
   .card-image-apps img {
-    opacity: 0.45;
     height: 80%;
     width: auto;
     max-height: 416px;
@@ -719,11 +689,6 @@
     transform: scale(1.15);
   }
 
-  .card:hover .card-image-profile-creation img {
-    opacity: 0.85;
-    transform: scale(1.15);
-  }
-
   .card-info-wrapper {
     align-items: center;
     display: flex;
@@ -748,6 +713,14 @@
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.85em;
     margin-top: 8px;
+  }
+
+  .horizontal-align {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
   }
 
   /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
