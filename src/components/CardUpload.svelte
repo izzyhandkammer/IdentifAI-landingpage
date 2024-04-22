@@ -3,7 +3,7 @@
   const uploadAnim = "/upload.gif";
   const profileStatic = "/profileStatic.png";
 
-  const mobileGif = "/mobileView.gif";
+  const mobileGif = "/mobileAnim.gif";
   const mobileStatic = "/mobileStatic.png";
 
   let currentImageUpload = uploadStatic;
@@ -16,14 +16,14 @@
     currentImageUpload = uploadAnim;
     timeoutIdUpload = setTimeout(() => {
       currentImageUpload = profileStatic;
-    }, 3000); // Change this to the duration of your GIF
+    }, 3500); // Change this to the duration of your GIF
   }
 
   function handleMouseOverMobile() {
     currentImageMobile = mobileGif;
     timeoutIdMobile = setTimeout(() => {
       currentImageMobile = mobileStatic;
-    }, 3000); // Change this to the duration of your GIF
+    }, 4100); // Change this to the duration of your GIF
   }
 
   function handleMouseOutUpload() {
@@ -106,7 +106,6 @@
 
 <style>
   /* -- ↓ ↓ ↓ card effects ↓ ↓ ↓ -- */
-
   #cards {
     display: flex;
     flex-wrap: wrap;
@@ -185,7 +184,7 @@
     transform: scale(0.8);
     transition: transform 0.3s ease-in-out;
     user-select: none;
-    opacity: 0.8;
+    opacity: 0.7;
   }
 
   .card::before {
@@ -258,5 +257,54 @@
     font-family: "Inter";
     color: rgb(240, 240, 240);
     font-weight: 400;
+  }
+
+  @media (max-width: 1000px) {
+    #cards {
+      max-width: 1000px;
+      padding: 10px 0px;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      justify-self: center;
+      width: 100%;
+    }
+
+    .mobile {
+      width: 90%;
+    }
+
+    .card {
+      flex-shrink: 1;
+      width: 90%;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+    .card-content {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .card {
+      width: 100%;
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-info-title > h3 {
+      font-size: 0.9em;
+    }
+
+    .card-info-title > h4 {
+      font-size: 0.8em;
+      margin-top: 4px;
+    }
   }
 </style>

@@ -137,9 +137,7 @@
           </h4>
         </div>
       </div>
-      <div class="horizontal-align">
         <CardUpload />
-      </div>
     </div>
   </div></body
 >
@@ -661,13 +659,7 @@
     margin-top: 8px;
   }
 
-  .horizontal-align {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
+
 
   /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
 
