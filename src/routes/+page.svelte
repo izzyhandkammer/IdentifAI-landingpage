@@ -4,7 +4,6 @@
 
   const apps = "/apps.png";
   const favicon = "/eyecon.png";
-  const mobile = "/mobile.png";
   const meetingAdd = "/meeting-add.png";
 
   let cards;
@@ -51,11 +50,9 @@
     >
       <div class="rhetorical">
         <p style="width: 80%">
-          To safeguard yourself from the risks of deepfakes, adopting a
-          proactive stance is key. At IdentifAI, we've engineered a cutting-edge
-          solution designed to actively protect and monitor the images you share
-          online, ensuring your digital persona is secure from misuse and
-          manipulation.
+          Using proactive and reactive solutions to protect and increase
+          transparency for enterprises, IdentifAI provides the security that you
+          need in an era of ever-improving artificial intelligence.
         </p>
       </div>
       <div class="card ui-demo">
@@ -140,24 +137,9 @@
           </h4>
         </div>
       </div>
-	  <div class="horizontal-align">
-		<div class="card mobile">
-			<div class="card-content">
-			  <div class="card-image-mobile">
-				<img src={mobile} alt="mobile" />
-			  </div>
-			  <div class="card-info-wrapper-mobile">
-				<div class="card-info">
-				  <div class="card-info-title">
-					<h3>On the go?</h3>
-					<h4>Utilize the IdentifAI platform on any device</h4>
-				  </div>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		  <CardUpload />
-	  </div>
+      <div class="horizontal-align">
+        <CardUpload />
+      </div>
     </div>
   </div></body
 >
@@ -542,26 +524,12 @@
     width: 550px;
     height: 416px;
   }
-
-  .mobile {
-    width: 350px;
-    height: 416px;
-  }
-
   .meeting-add {
     width: 350px;
     height: 416px;
   }
 
   .card-info-wrapper-apps {
-    position: absolute;
-    bottom: 0;
-    align-items: center;
-    padding: 30px 20px;
-    flex-direction: column;
-  }
-
-  .card-info-wrapper-mobile {
     position: absolute;
     bottom: 0;
     align-items: center;
@@ -632,18 +600,11 @@
     justify-content: center;
   }
 
-  .card-image-mobile {
-    align-content: center;
-    display: flex;
-    justify-content: center;
-  }
-
   .card-image-meeting-add {
     align-content: center;
     display: flex;
     justify-content: center;
   }
-
 
   .card-image-apps img {
     height: 80%;
@@ -657,21 +618,6 @@
   .card:hover .card-image-apps img {
     opacity: 0.85;
     transform: scale(0.8);
-  }
-
-  .card-image-mobile img {
-    opacity: 0.45;
-    height: 80%;
-    width: auto;
-    max-height: 416px;
-    transform: scale(0.8);
-    transition: transform 0.3s ease-in-out;
-    user-select: none;
-  }
-
-  .card:hover .card-image-mobile img {
-    opacity: 0.85;
-    transform: scale(0.9);
   }
 
   .card-image-meeting-add img {
@@ -716,11 +662,11 @@
   }
 
   .horizontal-align {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
   }
 
   /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */

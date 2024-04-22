@@ -3,21 +3,39 @@
   const uploadAnim = "/upload.gif";
   const profileStatic = "/profileStatic.png";
 
-  let currentImage = uploadStatic;
-  let timeoutId;
+  const mobileGif = "/mobileView.gif";
+  const mobileStatic = "/mobileStatic.png";
 
-  function handleMouseOver() {
-    currentImage = uploadAnim;
-    timeoutId = setTimeout(() => {
-      currentImage = profileStatic;
+  let currentImageUpload = uploadStatic;
+  let timeoutIdUpload;
+
+  let currentImageMobile = mobileStatic;
+  let timeoutIdMobile;
+
+  function handleMouseOverUpload() {
+    currentImageUpload = uploadAnim;
+    timeoutIdUpload = setTimeout(() => {
+      currentImageUpload = profileStatic;
     }, 3000); // Change this to the duration of your GIF
   }
 
-  function handleMouseOut() {
-    clearTimeout(timeoutId);
-    if (currentImage !== profileStatic) {
-      currentImage = uploadStatic;
+  function handleMouseOverMobile() {
+    currentImageMobile = mobileGif;
+    timeoutIdMobile = setTimeout(() => {
+      currentImageMobile = mobileStatic;
+    }, 3000); // Change this to the duration of your GIF
+  }
+
+  function handleMouseOutUpload() {
+    clearTimeout(timeoutIdUpload);
+    if (currentImageUpload !== profileStatic) {
+      currentImageUpload = uploadStatic;
     }
+  }
+
+  function handleMouseOutMobile() {
+    clearTimeout(timeoutIdMobile);
+    currentImageMobile = mobileStatic;
   }
 
   let cards;
@@ -40,16 +58,38 @@
   role="presentation"
 >
   <div
+    class="card mobile"
+    on:mouseover={handleMouseOverMobile}
+    on:focus={handleMouseOverMobile}
+    on:mouseout={handleMouseOutMobile}
+    on:blur={handleMouseOutMobile}
+    role="presentation"
+  >
+    <div class="card-content">
+      <div class="card-image-mobile">
+        <img src={currentImageMobile} alt="mobile" />
+      </div>
+      <div class="card-info-wrapper-mobile">
+        <div class="card-info">
+          <div class="card-info-title">
+            <h3>On the go?</h3>
+            <h4>Utilize the IdentifAI platform on any device</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="card profile-creation"
-    on:mouseover={handleMouseOver}
-    on:focus={handleMouseOver}
-    on:mouseout={handleMouseOut}
-    on:blur={handleMouseOut}
+    on:mouseover={handleMouseOverUpload}
+    on:focus={handleMouseOverUpload}
+    on:mouseout={handleMouseOutUpload}
+    on:blur={handleMouseOutUpload}
     role="presentation"
   >
     <div class="card-content">
       <div class="card-image-profile-creation">
-        <img src={currentImage} alt="Upload animation" />
+        <img src={currentImageUpload} alt="Upload animation" />
       </div>
       <div class="card-info-wrapper-profile-creation">
         <div class="card-info">
@@ -70,34 +110,14 @@
   #cards {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-self: center;
     max-width: 916px;
+    gap: 8px;
   }
 
   #cards:hover > .card::after {
     opacity: 1;
-  }
-
-  .card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    position: relative;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .profile-creation {
-    width: 550px;
-    height: 416px;
-  }
-
-  .card-info-wrapper-profile-creation {
-    position: absolute;
-    bottom: 0;
-    align-items: center;
-    padding: 30px 20px;
-    flex-direction: column;
   }
 
   .card:hover::before {
@@ -115,6 +135,57 @@
     top: 0px;
     transition: opacity 500ms;
     width: 100%;
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .profile-creation {
+    width: 550px;
+    height: 416px;
+  }
+
+  .mobile {
+    width: 350px;
+    height: 416px;
+  }
+
+  .card-info-wrapper-profile-creation {
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+    padding: 30px 20px;
+    flex-direction: column;
+  }
+
+  .card-info-wrapper-mobile {
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+    padding: 30px 20px;
+    flex-direction: column;
+  }
+
+  .card-image-mobile {
+    align-content: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-image-mobile img {
+    height: 80%;
+    width: auto;
+    max-height: 416px;
+    transform: scale(0.8);
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+    opacity: 0.8;
   }
 
   .card::before {
@@ -170,6 +241,22 @@
   .card-info-title > h3 {
     font-size: 1.1em;
     line-height: 20px;
+  }
+
+  .card-info-title > h4 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85em;
+    margin-top: 8px;
+  }
+
+  h3 {
+    font-family: "Syne";
     color: white;
+    font-weight: 700;
+  }
+  h4 {
+    font-family: "Inter";
+    color: rgb(240, 240, 240);
+    font-weight: 400;
   }
 </style>
