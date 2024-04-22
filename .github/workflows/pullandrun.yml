@@ -37,5 +37,10 @@ jobs:
       - name: Install Svelte Eslint
         run: npm install --save-dev eslint eslint-plugin-svelte svelte
       
-      - name: Run ESLint
-        run: npx eslint . --ext .js,.jsx,.ts,.tsx
+      - name: Run ESLint on Components
+        run: npx eslint src/components/*
+
+      - name: Run ESLint on Routes
+        run: npx eslint src/routes/*
+
+      
