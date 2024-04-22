@@ -18,26 +18,15 @@ jobs:
           ref: sveltepage
 
       - name: WHERE AM I?
-        run: pwd && echo ls *
+        run: pwd && echo ls -al *
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18'
+
+      - name: Install Svelte Eslint
+        run: npm install --save-dev eslint eslint-plugin-svelte svelte
       
       - name: Run ESLint
-        run: npx eslint ./src
-
-      - name: Install SSH keys
-        run: |
-          install -m 600 -D /dev/null ~/.ssh/id_rsa
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
-          
-      - name: Pulling Changes
-        run:
-          echo "Pulling Changes"
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull origin sveltepage && npm run dev -- --host"
-
-      - name: cleanup
-        run: rm -rf ~/.ssh
+        run: eslint . --ext .js,.jsx,.ts,.tsx
