@@ -16,7 +16,7 @@
     currentImageUpload = uploadAnim;
     timeoutIdUpload = setTimeout(() => {
       currentImageUpload = profileStatic;
-    }, 3500); 
+    }, 3500);
   }
 
   function handleMouseOverMobile() {
@@ -172,13 +172,16 @@
   }
 
   .card-image-mobile {
-    align-content: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    margin: 0;
   }
 
   .card-image-mobile img {
-    height: 80%;
+    height: 75%;
     width: auto;
     max-height: 416px;
     transform: scale(0.8);
@@ -305,6 +308,35 @@
     .card-info-title > h4 {
       font-size: 0.8em;
       margin-top: 4px;
+    }
+
+    .profile-creation {
+      width: 100%;
+      height: 300px;
+    }
+
+    .card-image-mobile img {
+      height: 75%;
+      width: auto;
+      max-height: 416px;
+      transform: scale(0.8);
+      transition: transform 0.3s ease-in-out;
+      user-select: none;
+      opacity: 0.7;
+    }
+
+    .card-image-profile-creation {
+      position: relative;
+      width: 100%;
+      height: fit-content;
+    }
+
+    .card-image-profile-creation img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
     }
   }
 </style>
