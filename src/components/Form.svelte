@@ -162,4 +162,29 @@
     font-size: 1.2rem;
     margin-top: 10px;
   }
+
+  @media (max-width: 500px) {
+    .form-wrapper {
+      width: 80%;
+      padding: 0;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    form {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+    .values-separator {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 90%;
+    }
+  }
 </style>

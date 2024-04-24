@@ -183,4 +183,22 @@
     background-color: #1e0e34;
     color: white;
   }
+
+  @media (max-width: 600px) {
+    .header {
+      margin: 0;
+    }
+
+    .header-right a {
+      margin: 10px 0;
+    }
+
+    .header-right {
+      gap: 10px;
+    }
+
+    .glow-button {
+      padding: 5px;
+    }
+  }
 </style>

@@ -742,12 +742,19 @@
   }
 
   @media (max-width: 500px) {
+    body {
+      overflow-x: hidden;
+    }
     .card {
       width: 90%;
     }
 
     .solution h3 {
       font-size: 30px;
+    }
+
+    .solution h4 {
+      margin: 15px;
     }
 
     .card-info-wrapper {

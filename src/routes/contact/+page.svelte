@@ -66,4 +66,11 @@
     justify-content: center;
     margin-top: 50px;
   }
+
+  @media (max-width: 500px) {
+    h2 {
+      font-size: 40px;
+      width: 80%;
+    }
+  }
 </style>
