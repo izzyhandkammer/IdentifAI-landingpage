@@ -79,14 +79,10 @@
         <div class="solution">
           <h3 id="product" class="subt">Reactive Plugin</h3>
           <h4>
-            Our innovative Photographic Firewall solution offers proactive
-            defense against manipulations by generative AI. By embedding a
-            robust layer of defense directly within images, our patent-pending
-            anti-deepfake technology empowers media to function as its own
-            safeguard, effectively thwarting malicious alterations. Our powerful
-            mechanism operates seamlessly, maintaining the original image
-            quality while offering real-time protection for individuals or
-            entities particularly vulnerable to deepfake attacks.
+            Our KYE product secures video calls in real-time against deepfake
+            threats, verifying participant identities through facial and audio
+            analysis, ensuring authentic communication without relying solely on
+            machine learning.
           </h4>
         </div>
       </div>
@@ -127,20 +123,23 @@
         <div class="solution">
           <h3 class="subt">Proactive Defense</h3>
           <h4>
-            Our "Know Your Employee" or KYE product provides real time
-            protection for video conferencing environments from deepfake-enabled
-            social engineering attacks. Employing technologies, the KYE process
-            verifies the facial and audio profiles of participants, ensuring
-            authenticity and integrity without depending on machine learning
-            models. This targeted approach offers a sustainable, real-time
-            defense against potential cyber threats.
+            Our Photographic Firewall provides a proactive, patent-pending
+            defense against AI manipulations, embedding security within media to
+            autonomously guard against deepfakes, ensuring seamless protection
+            while preserving the original quality.
           </h4>
         </div>
       </div>
-        <CardUpload />
+      <CardUpload />
     </div>
-  </div></body
->
+    <a
+      href="https://calendly.com/d/cpw3-4qv-vc6/identifai-demo?month=2024-04"
+      target="_blank"
+    >
+      <button id="buttons" class="glow-button">Schedule a Demo</button></a
+    >
+  </div>
+</body>
 
 <style>
   /* -- ↓ ↓ ↓ global styles ↓ ↓ ↓ -- */
@@ -184,7 +183,7 @@
 
   .heroT {
     height: 20em;
-    padding-top: 2em;
+    padding-top: 1em;
     opacity: 0;
     animation: load 2s ease-in-out 0.6s forwards;
   }
@@ -202,8 +201,8 @@
     right: 0;
     margin: auto;
     width: fit-content;
-
-    font-size: 4em;
+    text-align: center;
+    font-size: 5em;
     font-weight: 600;
     color: #9dc3f7;
     background: radial-gradient(
@@ -255,6 +254,10 @@
     syntax: "<percentage>";
     inherits: false;
     initial-value: 0%;
+  }
+
+  .heroT h1::after {
+    gap: 1em;
   }
 
   h2 {
@@ -369,7 +372,7 @@
   }
   .solution h4 {
     color: white;
-    font-size: 20px;
+    font-size: 1.5em;
     margin-top: 20px;
     margin-bottom: 20px;
     font-weight: 100;
@@ -478,7 +481,7 @@
     font-weight: 200;
     color: white;
     font-size: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 20px;
     width: 70%;
     text-align: center;
@@ -659,7 +662,28 @@
     margin-top: 8px;
   }
 
+  .glow-button {
+    font-weight: 500;
+    padding: 10px 20px;
+    border: 1px solid #d0afe5;
+    border-radius: 5px;
+    font-family: "Syne";
+    font-weight: 500;
+    background: white;
+    opacity: 0.8;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 400px 50px #55556b;
+    margin-bottom: 3em;
+  }
 
+  .glow-button:hover {
+    box-shadow: 0 0 15px 3px #d0afe5;
+    opacity: 0.9;
+    background-color: #1e0e34;
+    color: white;
+  }
 
   /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
 

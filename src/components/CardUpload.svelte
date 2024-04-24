@@ -16,14 +16,14 @@
     currentImageUpload = uploadAnim;
     timeoutIdUpload = setTimeout(() => {
       currentImageUpload = profileStatic;
-    }, 3500); // Change this to the duration of your GIF
+    }, 3500); 
   }
 
   function handleMouseOverMobile() {
     currentImageMobile = mobileGif;
     timeoutIdMobile = setTimeout(() => {
       currentImageMobile = mobileStatic;
-    }, 4100); // Change this to the duration of your GIF
+    }, 4100);
   }
 
   function handleMouseOutUpload() {
