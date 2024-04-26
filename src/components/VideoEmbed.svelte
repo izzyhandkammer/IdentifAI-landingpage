@@ -23,14 +23,6 @@
         border-radius: 20px; /* Rounded corners */
         overflow: hidden; /* Ensures the video corners are clipped to the border radius */
     }
-	.overlay {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: transparent;
-	}
     video {
         width: 100%; /* Ensure video fills the container */
         height: auto; /* Maintain aspect ratio */
@@ -51,5 +43,4 @@
         on:mouseleave={playVideo}>
         <track kind="captions" />
     </video>
-	<div class="overlay"></div>
 </div>
