@@ -39,6 +39,7 @@
         poster={videoPoster}
         src={videoAnim}
         bind:this={video}
+        controls={false}
         on:mouseenter={pauseVideo}
         on:mouseleave={playVideo}>
         <track kind="captions" />
