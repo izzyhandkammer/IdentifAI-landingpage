@@ -64,10 +64,9 @@
           <h2>Who has access to your photos and videos?</h2>
           <p>
             To safeguard yourself from the risks of deepfakes, adopting a
-            proactive stance is key. At IdentifAI, we've engineered a
-            cutting-edge solution designed to actively protect and monitor the
-            images you share online, ensuring your digital persona is secure
-            from misuse and manipulation.
+            proactive stance is key. At IdentifAI, we've engineered a dual-pronged approach
+            to both protect your media content and handle deepfake fraud when it occurs.
+            Our system integrates effortlessly into your existing infrastructure, providing a fortified line of defense that operates silently in the background
           </p>
         </div>
         <div class="solution">
@@ -126,6 +125,7 @@
       </div>
       <CardUpload />
     </div>
+
     <a
       href="https://calendly.com/d/cpw3-4qv-vc6/identifai-demo?month=2024-04"
       target="_blank"
