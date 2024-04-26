@@ -3,8 +3,6 @@
     const videoAnim = "/videocall.mp4";
     const videoPoster = "/videoposter.png";
     let video;
-    let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    let videoControls = !isMobile;
 
     onMount(() => {
         video.play(); // Ensures the video plays on mount, considering autoplay might fail.
@@ -41,7 +39,7 @@
         muted
         poster={videoPoster}
         src={videoAnim}
-        bind:this={videoControls}
+        bind:this={video}
         controls={false}
         on:mouseenter={pauseVideo}
         on:mouseleave={playVideo}>
