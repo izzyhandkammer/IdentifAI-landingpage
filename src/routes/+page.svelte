@@ -3,6 +3,8 @@
   import CardUpload from "../components/CardUpload.svelte";
   import VideoEmbed from "../components/VideoEmbed.svelte";
 
+  const lightningbolt = "./fast.gif"
+  const puzzle = "/puzzle.gif";
   const apps = "/apps.png";
   const favicon = "/eyecon.png";
   const meetingAdd = "/meeting-add.png";
@@ -126,12 +128,15 @@
       </div>
       <CardUpload />
     </div>
-    <a
+    <div class="button-container">
+      <a
       href="https://calendly.com/d/cpw3-4qv-vc6/identifai-demo?month=2024-04"
       target="_blank"
     >
       <button id="buttons" class="glow-button">Schedule a Demo</button></a
     >
+    </div>
+    
   </div>
 </body>
 
@@ -510,10 +515,6 @@
     transition: transform 0.3s ease-in-out;
   }
 
-  .ui-demo {
-    width: 916px;
-    height: 516px;
-  }
 
   .apps {
     width: 550px;
@@ -587,8 +588,7 @@
     z-index: 2;
   }
 
-  /* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
-
+  /* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */  
   .card-image-apps {
     align-content: center;
     display: flex;
@@ -630,14 +630,6 @@
     transform: scale(1.15);
   }
 
-  .card-info-wrapper {
-    align-items: center;
-    display: flex;
-    flex-grow: 1;
-    justify-content: flex-start;
-    padding: 0px 20px;
-    user-select: none;
-  }
 
   .card-info {
     align-items: flex-start;
@@ -656,6 +648,13 @@
     margin-top: 8px;
   }
 
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+  }
+
   .glow-button {
     font-weight: 500;
     padding: 10px 20px;
@@ -670,6 +669,7 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 400px 50px #55556b;
     margin-bottom: 3em;
+    margin-top: 3em;
   }
 
   .glow-button:hover {
@@ -749,10 +749,6 @@
 
     .solution h4 {
       margin: 15px;
-    }
-
-    .card-info-wrapper {
-      padding: 0px 10px;
     }
 
     .card-info-title > h3 {
