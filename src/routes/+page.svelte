@@ -1,6 +1,7 @@
 <script>
   import Background from "../components/Background.svelte";
   import CardUpload from "../components/CardUpload.svelte";
+  import VideoEmbed from "../components/VideoEmbed.svelte";
 
   const apps = "/apps.png";
   const favicon = "/eyecon.png";
@@ -55,16 +56,9 @@
           need in an era of ever-improving artificial intelligence.
         </p>
       </div>
-      <div class="card ui-demo">
-        <div class="card-content">
-          <div class="card-image-ui-demo"></div>
-          <div class="card-info-wrapper">
-            <div class="card-info-ui-demo">
-              <div class="card-info-title"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
+          <VideoEmbed />
+        
       <div class="text-separator">
         <div class="rhetorical">
           <h2>Who has acess to your photos and videos?</h2>
