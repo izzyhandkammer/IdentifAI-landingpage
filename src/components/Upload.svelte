@@ -9,7 +9,7 @@
     currentImage = uploadAnim;
     timeoutId = setTimeout(() => {
       currentImage = profileStatic;
-    }, 3500); // Make sure this matches the exact duration of your GIF
+    }, 3500);
   }
 
   function handleMouseOut() {

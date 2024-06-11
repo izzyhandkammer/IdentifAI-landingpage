@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+
     const videoAnim = "/videocall.mp4";
     const videoPoster = "/videoposter.png";
     let video;
@@ -7,9 +8,11 @@
     onMount(() => {
         video.play(); // Ensures the video plays on mount, considering autoplay might fail.
     });
+
     function pauseVideo() {
         video.pause();
     }
+
     function playVideo() {
         video.play();
     }
@@ -24,6 +27,7 @@
         border-radius: 20px; /* Rounded corners */
         overflow: hidden; /* Ensures the video corners are clipped to the border radius */
     }
+
     video {
         width: 100%; /* Ensure video fills the container */
         height: auto; /* Maintain aspect ratio */
@@ -40,7 +44,6 @@
         poster={videoPoster}
         src={videoAnim}
         bind:this={video}
-        controls={false}
         on:mouseenter={pauseVideo}
         on:mouseleave={playVideo}>
         <track kind="captions" />

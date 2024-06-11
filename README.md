@@ -19,13 +19,21 @@ More specifically, Svelte´s compiler first analyzes the application code and ge
 ## Folder Structure
 
     ├── identifai               
-    │   ├── src                       # 
+    │   ├── src                       #
     |   │   ├── components            # Where the page elements are stored
-    |   |   |   └── Background.svelte # The background particle effect
+    |   |   |   └── Background.svelte # Background particle effect
+    |   |   |   └── CardUpload.svelte # Card container for product info
+    |   |   |   └── Form.svelte       # Contact form
+    |   |   |   └── Upload.svelte     # Visual gif elements for Proactive defense section
+    |   |   |   └── VideoEmbed.svelte # Embedded video container
     |   │   ├── lib                   # 
     │   |   ├── routes                # 
     |   |   |   └── +page.svelte      # Our webpage
     |   |   |   └── +layout.svelte    # Component that displays the header and footer
+    |   |   |   └── team              # 
+    |   |   |   |   └── +page.svelte  # Page containing founders information
+    |   |   |   └── contact           # 
+    |   |   |   |   └── +page.svelte  # Container for contact form
     │   |   └── app.html              # Our fallback page
     │   └── static                    # All our visual elements
     └── ...
@@ -87,5 +95,4 @@ npm run dev -- --host
 ```
 
 ## Known Issues
-
-Card hover effect refusing to work in directory containing .git but working on a local copy without git despite excact same file structure and contents...
+none!
